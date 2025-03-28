@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>W5 - Interactive Typography</title>
+    <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/projectContent.css" />
+  </head>
+  <body>
+    <!-- Main Navbar (same as in theProject.html) -->
+    <nav class="projects-navbar">
+      <ul>
+        <li><a href="./index.html">home</a></li>
+        <li><a href="#">rationale</a></li>
+        <li><a href="#">website_info</a></li>
+        <li><a class="active" href="#">the_project</a></li>
+      </ul>
+    </nav>
+
+    <div class="submenu-wrapper">
+      <a href="./theProject.html"><button class="go-back-btn">←</button></a>
+      <nav class="project-submenu">
+        <ul>
+          <li><a href="./projectW1.html">W1</a></li>
+          <li><a href="./projectW2.html">W2</a></li>
+          <li><a href="./projectW3.html">W3</a></li>
+          <li><a href="./projectW4.html">W4</a></li>
+          <li><a href="./projectW5.html" class="active">W5</a></li>
+          <li><a href="./projectW6.html">W6</a></li>
+          <li><a href="#">-</a></li>
+          <li><a href="./projectW9.html">W9</a></li>
+          <li><a href="./projectW10.html">W10</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content Section -->
+    <main class="project-content">
+      <!-- Title Section -->
+      <section class="title-section">
+        <h1>//WEEK 05: <span>MUSE</span></h1>
+        <hr class="separator" />
+      </section>
+
+      <!-- Typography Section -->
+      <section class="typography-section">
+        <!-- Summary Group (Left) -->
+        <div class="summary-group week5">
+          <h2>explanation</h2>
+          <p>
+            This is the summary of Project Week 1. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Vestibulum vitae ligula eget dolor
+            ultricies blandit.Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vestibulum vitae ligula eget dolor ultricies blandit.Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae
+            ligula eget dolor ultricies blandit.
+          </p>
+        </div>
+        <!-- Typography Group (Right) -->
+        <div class="typography-group week5">
+          <h2>click / drag words</h2>
+          <!-- p5 Canvas container -->
+          <div id="typography-canvas" class="typography-canvas week5"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Include the project navigation script -->
+    <script src="./scripts/projectSketch.js"></script>
+    <!-- p5.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <!-- Typography p5 Sketch Script -->
+    <script src="./scripts/typographySketchW5.js"></script>
+  </body>
+</html>

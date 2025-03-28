@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>W10 - Movie Teaser</title>
+    <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/projectContent.css" />
+  </head>
+  <body>
+    <nav class="projects-navbar">
+      <ul>
+        <li><a href="./index.html">home</a></li>
+        <li><a href="#">rationale</a></li>
+        <li><a href="#">website_info</a></li>
+        <li><a class="active" href="#">the_project</a></li>
+      </ul>
+    </nav>
+
+    <div class="submenu-wrapper">
+      <a href="./theProject.html"><button class="go-back-btn">←</button></a>
+      <nav class="project-submenu">
+        <ul>
+          <li><a href="./projectW1.html">W1</a></li>
+          <li><a href="./projectW2.html">W2</a></li>
+          <li><a href="./projectW3.html">W3</a></li>
+          <li><a href="./projectW4.html">W4</a></li>
+          <li><a href="./projectW5.html">W5</a></li>
+          <li><a href="./projectW6.html">W6</a></li>
+          <li><a href="#">-</a></li>
+          <li><a href="./projectW9.html">W9</a></li>
+          <li><a href="./projectW10.html" class="active">W10</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <section class="typography-section week10">
+      <!-- Right column (p5 sketch container) -->
+      <div id="typography-canvas" class="typography-canvas week10"></div>
+    </section>
+
+    <!-- p5.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <!-- Your p5 Sketch -->
+    <script src="./scripts/typographySketchW10.js"></script>
+  </body>
+</html>
