@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>W11 - DIY Drift Typography</title>
+    <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/projectContent.css" />
+  </head>
+  <body>
+    <nav class="projects-navbar">
+      <ul>
+        <li><a href="./index.html">home</a></li>
+        <li><a href="#">rationale</a></li>
+        <li><a class="active" href="#">the_project</a></li>
+      </ul>
+    </nav>
+
+    <div class="submenu-wrapper">
+      <a href="./theProject.html"><button class="go-back-btn">←</button></a>
+      <nav class="project-submenu">
+        <ul>
+          <li><a href="./projectW1.html">W1</a></li>
+          <li><a href="./projectW2.html">W2</a></li>
+          <li><a href="./projectW3.html">W3</a></li>
+          <li><a href="./projectW4.html">W4</a></li>
+          <li><a href="./projectW5.html">W5</a></li>
+          <li><a href="./projectW9.html">W9</a></li>
+          <li><a href="./projectW10.html">W10</a></li>
+          <li><a href="./projectW11.html" class="active">W11</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="project-content">
+      <section class="title-section">
+        <h1>//WEEK 11: <span>W0RD</span></h1>
+        <hr class="separator" />
+      </section>
+
+      <section class="summary-section">
+        <h2>about</h2>
+        <p>
+          I made this project as a way to explore the idea of "DIY" in a
+          digital, interactive format. It was inspired by another piece I worked
+          on, where I built words out of real objects—like broken pencils and
+          metal bits like chains & screws.
+          <br />
+          <br />
+          I wanted to bring that same handmade, experimental feel into a
+          screen-based experience. In W0RD, the user types in a word, and
+          scattered images—like chains, tapes, screws, or a mix—start drifting
+          into place to form that word. It ends up looking like a collage built
+          from scraps. The user gets to pick the image set they like, and they
+          can also save the final result as an image.
+          <br />
+          <br />
+          There are also floating leftover images that avoid the formed word,
+          which adds a nice sense of movement and keeps the focus on the design.
+          So in a way, this is my take on digital DIY—building words out of
+          pieces and letting the user have a hand in the final creation.
+        </p>
+      </section>
+
+      <section class="interactive-project-section">
+        <h2>create your word</h2>
+        <div class="controls-container">
+          <input
+            type="text"
+            id="wordInput"
+            placeholder="try typing your name"
+          />
+          <button id="submitWord">Create</button>
+          <select id="objectSetSelector">
+            <option value="chains" selected>Chains</option>
+            <option value="tapes">Tapes</option>
+            <option value="buttons">Screws</option>
+            <option value="mixed">Mix em up</option>
+          </select>
+          <button id="saveImageBtn">Save Image</button>
+        </div>
+
+        <div id="typography-canvas" class="typography-canvas week11"></div>
+      </section>
+    </main>
+
+    <section class="typography-section originalWork">
+      <div class="rationale-group">
+        <h2>rationale</h2>
+
+        <p>
+          This project was inspired by two tracks—one that’s totally in my
+          comfort zone, and another that challenged me and made me step out of
+          it.
+          <br />
+          <br />
+          <b>Song 1- Headup by Deftones</b>
+          <br />
+
+          Headup by Deftones is one of my favorite songs. It feels rough, loud,
+          and full of emotion with heavy guitars and an offbeat melody that
+          gives it a perfectly messy sound. The song talks about how messed up
+          things can get, especially inside your head. I tried to match the same
+          energy as the music was raw, edgy, and full of noise and feeling. To
+          emphasize that, I used different screws and metal parts scattered
+          throughout the composition, adding to the disorder and texture. Song
+          <br />
+          <br />
+          <b>2- “Hello by Adele”</b>
+          <br />
+          For my second piece, I chose to spell out “Hello” using broken
+          pencils. Hoping to reflect the vibes of Adele’s song which to me, it
+          sounded like a feeling of being broken, yet still trying to reach out.
+          Choosing this type of song was outside my comfort zone because I
+          usualyl listen to either rock music or edm, but this allowed me to
+          explore vulnerability.
+        </p>
+      </div>
+
+      <div class="work-group">
+        <div class="card">
+          <img class="front" src="./img/word.png" alt="Front Image" />
+          <img class="back" src="./img/wordback.png" alt="Back Image" />
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Find the card element
+      const cardElement = document.querySelector(".card");
+
+      // Add a click listener
+      cardElement.addEventListener("click", function () {
+        // Toggle the 'flip' class on the card element
+        cardElement.classList.toggle("flip");
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.dom.min.js"></script>
+    <script src="./scripts/typographySketchW11.js"></script>
+  </body>
+</html>

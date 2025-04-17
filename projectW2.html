@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Project W1 - Interactive Typography</title>
+    <title>W2 - Image Blast</title>
     <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/projectContent.css" />
@@ -14,7 +14,6 @@
       <ul>
         <li><a href="./index.html">home</a></li>
         <li><a href="#">rationale</a></li>
-        <li><a href="#">website_info</a></li>
         <li><a class="active" href="#">the_project</a></li>
       </ul>
     </nav>
@@ -28,10 +27,10 @@
           <li><a href="./projectW3.html">W3</a></li>
           <li><a href="./projectW4.html">W4</a></li>
           <li><a href="./projectW5.html">W5</a></li>
-          <li><a href="./projectW6.html">W6</a></li>
-          <li><a href="#">-</a></li>
+
           <li><a href="./projectW9.html">W9</a></li>
           <li><a href="./projectW10.html">W10</a></li>
+          <li><a href="./projectW11.html">W11</a></li>
         </ul>
       </nav>
     </div>
@@ -48,14 +47,23 @@
       <section class="typography-section">
         <!-- Summary Group (Left) -->
         <div class="summary-group">
-          <h2>week_summary</h2>
+          <h2>about</h2>
           <p>
-            This is the summary of Project Week 1. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Vestibulum vitae ligula eget dolor
-            ultricies blandit.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vestibulum vitae ligula eget dolor ultricies blandit.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae
-            ligula eget dolor ultricies blandit.
+            When the mouse moves without clicking, only small, scattered letters
+            appear — quiet, almost like whispers. But when the mouse is pressed
+            and held, the screen reacts strongly: the background flashes between
+            red and black, and full words like "MASCULINE," "PRIDE," "EGO,"
+            "TOXIC" appear quickly.
+            <br />
+            <br />
+            This was meant to show how small thoughts can grow into bigger,
+            louder feelings — especially when it comes to the pressure of
+            certain identities. The flashing background and fast motion
+            represent how intense and overwhelming those emotions can feel.
+            <br />
+            <br />
+            It’s about how something that starts small can explode when held in
+            for a long time.
           </p>
         </div>
         <!-- Typography Group (Right) -->
@@ -66,6 +74,44 @@
           <div id="typography-canvas" class="typography-canvas week2"></div>
         </div>
       </section>
+
+      <section class="typography-section originalWork">
+        <div class="rationale-group">
+          <h2>rationale</h2>
+          <p>
+            This project is about breaking stereotypes around “traditional”
+            gender roles often associated with men, particularly when it comes
+            to hobbies and activities. Society tends to excuse traditionally
+            masculine activities with phrases like “boys will be boys,” but
+            often ridicules men for engaging in tasks perceived as
+            “traditionally feminine”.
+            <br />
+            <br />
+            In this example, the project highlights the act of sewing—a task
+            frequently linked to femininity and womanhood. Sewing is often seen
+            as a “feminine” activity, something society expects women to do. By
+            showcasing a man sewing—someone who doesn’t fit the typical idea of
+            masculinity—the project challenges and redefines these assumptions.
+            The goal isn’t to reinforce stereotypes but to challenge them: A man
+            is engaging in something considered “feminine.”
+            <br />
+            <br />
+            He fits the usual image of what a man is “supposed” to be. By
+            sewing, he questions both traditional masculinity and femininity. He
+            shows that men can confidently do things society labels as “for
+            women.” This project uses stereotypes not to agree with them but to
+            challenge and push back against them, ultimately showing that people
+            can define themselves however they choose.
+          </p>
+        </div>
+        <div class="work-group">
+          <!-- simple wrapper + two faces -->
+          <div class="card">
+            <img class="front" src="./img/imageblast.png" alt="Front Image" />
+            <img class="back" src="./img/imgblast(back).png" alt="Back Image" />
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Include the project navigation script -->
@@ -74,5 +120,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <!-- Typography p5 Sketch Script -->
     <script src="./scripts/typographySketchW2.js"></script>
+    <script>
+      // Find the card element
+      const cardElement = document.querySelector(".card");
+
+      // Add a click listener
+      cardElement.addEventListener("click", function () {
+        // Toggle the 'flip' class on the card element
+        cardElement.classList.toggle("flip");
+      });
+    </script>
   </body>
 </html>

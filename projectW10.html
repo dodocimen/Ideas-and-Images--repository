@@ -7,13 +7,14 @@
     <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/projectContent.css" />
+    <link rel="stylesheet" href="./styles/winScreen.css" />
+    <link rel="stylesheet" href="./styles/arrowControls.css" />
   </head>
   <body>
     <nav class="projects-navbar">
       <ul>
         <li><a href="./index.html">home</a></li>
         <li><a href="#">rationale</a></li>
-        <li><a href="#">website_info</a></li>
         <li><a class="active" href="#">the_project</a></li>
       </ul>
     </nav>
@@ -27,22 +28,85 @@
           <li><a href="./projectW3.html">W3</a></li>
           <li><a href="./projectW4.html">W4</a></li>
           <li><a href="./projectW5.html">W5</a></li>
-          <li><a href="./projectW6.html">W6</a></li>
-          <li><a href="#">-</a></li>
           <li><a href="./projectW9.html">W9</a></li>
           <li><a href="./projectW10.html" class="active">W10</a></li>
+          <li><a href="./projectW11.html">W11</a></li>
         </ul>
       </nav>
     </div>
 
-    <section class="typography-section week10">
-      <!-- Right column (p5 sketch container) -->
-      <div id="typography-canvas" class="typography-canvas week10"></div>
-    </section>
+    <main class="project-content">
+      <section class="title-section">
+        <h1>//WEEK 10: <span>M0VIE_TEASER</span></h1>
+        <hr class="separator" />
+      </section>
 
-    <!-- p5.js Library -->
+      <section class="typography-section">
+        <div class="summary-group week10">
+          <h2>about</h2>
+          <p>
+            This project is a re-imagined, interactive version of my poster for
+            the movie Maze Runner. I wanted to take the core idea — being
+            trapped in a maze with only one way out — and turn it into something
+            the user can feel and experience through interaction.
+            <br />
+            <br />
+            The maze is built using words like "WICKED IS GOOD", forming the
+            walls. You control a small red ball, guiding it through the maze
+            toward the green “EXIT”. Movement works across devices — arrow keys,
+            drag-and-drop on desktop, or tapping buttons on mobile.
+            <br />
+            <br />
+            If you hit a wall or let go while dragging, the maze resets. On
+            mobile, holding down buttons speeds up the movement, adding urgency
+            — just like the tension in the movie.
+            <br />
+            <br />
+            This final project acts as a movie teaser — not just for the film,
+            but for the full experience of this course. It’s fast-paced,
+            challenging, and layered with meaning, tying together typography,
+            motion, and storytelling in a playful, game-like format.
+          </p>
+        </div>
+        <div class="typography-group week10">
+          <h2>hold & drag / tap arrows</h2>
+
+          <div id="typography-canvas-container">
+            <div id="typography-canvas" class="typography-canvas week10"></div>
+          </div>
+
+          <div id="win-content" class="hidden">
+            <div class="win-article">
+              <h2>Rationale</h2>
+              <p>
+                I designed this poster for The Maze Runner using elements from
+                the movie to make it feel meaningful and intense. The maze walls
+                are built from the line “WICKED IS GOOD,” which is an important
+                phrase from the story. It shows how the maze and the people
+                behind it are connected.
+              </p>
+              <p>
+                In front of the maze entrance, there are three red commas. This
+                points to a scene where a character is pushed into the maze.
+                <br />
+                <br />
+                The colors red and black were used to create a strong, serious
+                feeling. Red stands for danger and fear, while black adds
+                mystery and darkness. The goal was to make something simple but
+                powerful, with little details that fans would recognize.
+              </p>
+            </div>
+            <div class="win-image">
+              <img src="./img/movieteaser.png" alt="Celebratory Image" />
+              <p><small>WICKED IS GOOD - MAZE RUNNER SERIES</small></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <!-- Your p5 Sketch -->
-    <script src="./scripts/typographySketchW10.js"></script>
+
+    <script src="./scripts/typographySketchW10.js" defer></script>
   </body>
 </html>

@@ -1,46 +1,134 @@
-:root {
-  --background-color: #0300BF; /* base background color */
-  --text-color: #D9D9D9;       /* base text color */
-}
+/* === General Page & Navigation Elements === */
 
-/* Navbar container styling */
-.projects-navbar {
+.hero {
+  position: relative;
   width: 100%;
-  max-width: 100vw;
-  border: 2px solid var(--text-color);
-  background: transparent; /* No background */
-  padding: 10px 0;      /* Vertical padding */
-  box-sizing: border-box;
-  z-index: 10;          /* Ensure it stays on top */
+  max-width: 1200px;
+  height: 400px;
+  margin-bottom: 150px;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Reset list styling and arrange links in a row */
+.hero .background-text {
+  position: absolute;
+  top: 150px;
+  left: 21%;
+  font-size: 6em;
+  color: var(--text-color);
+  z-index: 0;
+  white-space: nowrap;
+  text-align: center;
+  color: rgb(242, 0, 255); /* Note: This is separate from theme colors */
+  line-height: 100%;
+}
+
+.hero canvas { /* p5 canvas on homepage */
+  position: relative;
+  z-index: 1;
+}
+
+.navigation { /* Homepage menu container */
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 130px;
+}
+
+.navigation h2 {
+  font-family: 'TronicaMono';
+  font-size: 2.2em;
+  margin-bottom: 60px;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navigation ul li {
+  margin-bottom: 30px;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: var(--text-color); /* Default state */
+  background-color: transparent; /* Default state */
+  font-size: 1.5em;
+  padding: 0px;
+}
+
+.navigation ul li a:hover,
+.navigation ul li a.active {
+  background-color: var(--text-color); /* Use variable */
+  color: var(--background-color);      /* Use variable */
+}
+
+.input-info-img { /* Image on homepage */
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+  width: 250px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.logo-img { /* Logo on homepage */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 75px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 999;
+  /* cursor: pointer; Added via JS */
+}
+
+/* === Project Page Structure Elements === */
+
+.project-content {
+  padding: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.projects-navbar { /* Top nav on project pages */
+  width: 100%;
+  border: 2px solid var(--text-color);
+  background: transparent;
+  padding: 10px 0;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
 .projects-navbar ul {
   list-style: none;
   display: flex;
-  justify-content: space-around; /* Evenly spaces the links */
+  justify-content: space-around;
   margin: 0;
   padding: 0;
 }
 
-/* Styling for each link */
 .projects-navbar ul li a {
   text-decoration: none;
   font-size: 1.2em;
-  color: var(--text-color);
+  color: var(--text-color); /* Default state */
+  background-color: transparent; /* Default state */
 }
 
-/* Optional hover effect for better interactivity */
-.projects-navbar ul li a:hover {
-  background-color: var(--text-color);
-  color: var(--background-color);
+.projects-navbar ul li a:hover,
+.projects-navbar ul li a.active {
+  background-color: var(--text-color); /* Use variable */
+  color: var(--background-color);      /* Use variable */
 }
 
-/* Project Selection Section Styling */
-.project_selection {
+.project_selection { /* Project list on theProject.html */
   width: 100%;
-  max-width: 100vw;
-  margin-top:20px;
+  margin-top: 20px;
   border: 2px solid var(--text-color);
   padding: 20px;
   box-sizing: border-box;
@@ -48,38 +136,37 @@
 
 .project_selection ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Spacing between links */
+  gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .project_selection ul li a {
   display: flex;
   justify-content: space-between;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text-color); /* Default state */
+  background-color: transparent; /* Default state */
   font-size: 1.2em;
   padding: 10px 15px;
   border: 1px solid transparent;
 }
 
-.project_selection ul li a.active,
-.project_selection ul li a:hover {
-  background-color: var(--text-color);
-  color: var(--background-color);
+.project_selection ul li a:hover,
+.project_selection ul li a.active {
+  background-color: var(--text-color); /* Use variable */
+  color: var(--background-color);      /* Use variable */
 }
 
-/* Optional: Styling for the words inside each link */
 .project_selection ul li a .word-left,
 .project_selection ul li a .word-right {
   display: block;
 }
 
-.projects-footer{
-  width:100%;
-  max-width: 100vw;
+.projects-footer { /* Footer on theProject.html */
+  width: 100%;
   margin: 20px auto;
   border: 2px solid var(--text-color);
   padding: 30px 40px;
@@ -90,265 +177,646 @@
 }
 
 .projects-footer img {
-  max-width: 100%;  /* Allows each image to occupy nearly half of the container */
+  max-width: 100%;
   height: auto;
   display: block;
 }
 
-.left-img{
-  width:250px;
+.projects-footer .left-img {
+  width: 250px;
 }
 
- 
-.right-img{
-  width:80px;
+.projects-footer .right-img { /* Logo in project footer */
+  width: 80px;
+   /* cursor: pointer; Added via JS */
 }
 
-@media (max-width: 500px){
-  .projects-navbar ul li a{
-    text-decoration: none;
-    font-size: 1em;
-    color: var(--text-color);
-  }
-  
-  .projects-navbar ul li:nth-child(2) {
-    display:none;
-  }
-
-  .project_selection ul li a {
-    font-size: 1em;
-  }
-
-  .left-img{
-    width:180px;
-  }
-   
-  .right-img{
-    width:70px;
-  }
+.submenu-wrapper { /* Container for back button and week submenu */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px 0 0 auto;
+  box-sizing: border-box;
 }
 
-@media (max-width: 390px){
-
-  .projects-navbar ul li a{
-    text-decoration: none;
-    font-size: 1em;
-    color: var(--text-color);
-  }
-  
-  .projects-navbar ul li:nth-child(2) {
-    display:none;
-  }
-
-  .project_selection ul li a {
-    font-size: 1em;
-  }
-
-  .left-img{
-    width:180px;
-  }
-   
-  .right-img{
-    width:70px;
-  }
-
+.go-back-btn {
+  border: 2px solid var(--text-color);
+  background: transparent; /* Default state */
+  color: var(--text-color); /* Default state */
+  font-size: 1.2em;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-family: 'TronicaMono';
 }
 
-/* Container for the Go-Back Button and Sub-menu */
-.submenu-wrapper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin:10px 0 0 auto;
-    box-sizing: border-box;
-  }
-  
-  /* Go Back Button Styling */
-  .go-back-btn {
-    border: 2px solid var(--text-color);
-    background: transparent;
-    color: var(--text-color);
-    font-size: 1.2em;
-    padding:10px 15px;
-    cursor: pointer;
-    margin-right: 10px;
-    font-family: 'TronicaMono';;
-  }
+.go-back-btn:hover,
+.go-back-btn:active {
+  background-color: var(--text-color); /* Use variable */
+  color: var(--background-color);      /* Use variable */
+}
 
-  .go-back-btn:hover {
-    background: var(--text-color);
-    color: var(--background-color);
-  }
-  
-  /* Project Submenu Styling */
-  .project-submenu {
-    flex-grow: 1; /* Takes up the remaining space */
-    border: 2px solid var(--text-color);
-    background: transparent;
-    padding:10px;
-    box-sizing: border-box;
-  }
-  
-  .project-submenu ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .project-submenu ul li a {
-    text-decoration: none;
-    font-size: 1.2em;
-    color: var(--text-color);
-  }
+.project-submenu { /* Week navigation submenu */
+  flex-grow: 1;
+  border: 2px solid var(--text-color);
+  background: transparent;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.project-submenu ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.project-submenu ul li a {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: var(--text-color); /* Default state */
+  background-color: transparent; /* Default state */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.project-submenu ul li a:hover,
+.project-submenu ul li a.active {
+  background-color: var(--text-color); /* Use variable */
+  color: var(--background-color);      /* Use variable */
+}
+
+.title-section { /* Title area on individual project pages */
+  width: 100%;
+  max-width: 100vw;
+  text-align: left;
+  margin: 150px 0 50px;
+}
+
+.title-section h1 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+.title-section h1 span {
+  color: #FF00C8; /* Specific span color - keeping distinct */
+}
+
+.separator {
+  border: 0;
+  height: 2px;
+  background-color: var(--text-color);
+  width: 100%;
+  margin: 0 auto 30px auto;
+}
+
+/* === General Typography/Content Section Layout === */
+
+.typography-section { /* General grid layout for project pages */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+  max-width: 90vw;
+  margin-top: 30px;
+  align-items: start;
+}
+
+.summary-group, /* Left column (usually text) */
+.typography-group { /* Right column (usually canvas) */
+  user-select: none;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.summary-group h2,
+.typography-group h2 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+.summary-group{
+  padding-right:100px;
+}
+
+.summary-group p {
+  font-size: 0.9em;
+  font-family: monospace;
+  line-height: 2;
+  margin-top: 20px;
+}
+
+/* === General Typography Canvas Style === */
+
+.typography-canvas { /* Base style for p5 canvas containers */
+  width: 100%;
+  height: 400px; /* Default height */
+  max-width: 900px; /* Default max-width */
+  margin: 0 auto; /* Default centering */
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Default shadow */
+  cursor: default; /* Default cursor */
+}
+
+/* General style for inner p5 canvas */
+#typography-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Default position */
+}
+
+/* Touch action for relevant weeks */
+.typography-canvas.week1,
+.typography-canvas.week2,
+.typography-canvas.week5,
+.typography-canvas.week11 {
+  touch-action: none;
+  -ms-touch-action: none;
+}
 
 
-  
-  .project-submenu ul li a:hover,
-  .project-submenu ul li a.active {
-    background-color: var(--text-color);
-    color: var(--background-color);
-  }
-  
-  .project-submenu ul li a.active{
-    background-color:#FF00C8;
-  }
+/* === Week 1 Specific Styles === */
+/* No specific styles identified beyond .typography-canvas.week1 touch-action */
 
-  /* Title Section Styling */
-.title-section {
-    width: 100%;
-    max-width: 100vw;
-    text-align: left;
-    margin: 150px 0 50px 0;
-  }
-  
-  .title-section h1 {
-    font-size: 1.6em;
-    margin-bottom:10px;
-  }
-  
-  .title-section h1 span {
-    color:#FF00C8;
-  }
 
-  .separator {
-    border: 0;
-    height: 2px;
-    background-color: var(--text-color);
-    width: 100%;
-    margin: 0 auto;
+/* === Week 2 Specific Styles === */
+/* No specific styles identified beyond .typography-canvas.week2 touch-action */
+
+
+/* === Week 3 Specific Styles === */
+
+.typography-canvas.week3 { /* Canvas override */
+  margin:50px 0 25px 0;
+}
+
+.on-screen-keyboard {
+  display: none; /* Hidden by default, shown via media query */
+  width: 100%;
+  max-width: 100vw;
+  margin-top: 25px;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  gap: 4px;
+}
+.keyboard-row:last-child { margin-bottom: 0; }
+.key {
+  font-family: 'TronicaMono', 'Courier New', Courier, monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: rgba(217, 217, 217, 0.8); /* Default state */
+  color: var(--background-color, #0300BF); /* Default state */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 28px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  flex: 1;
+  max-width: 40px;
+  transition: background-color 0.1s ease;
+}
+.key:active, .key.active-key-feedback {
+  background-color: var(--background-color); /* Use variable */
+  color: var(--text-color);              /* Use variable */
+}
+
+
+/* === Week 4 Specific Styles === */
+.typography-canvas.week4 { /* Canvas override */
+  height: 250px;
+}
+/* No week-specific styles identified */
+
+
+/* === Week 5 Specific Styles === */
+.typography-canvas.week5{
+  height:250px;
+}
+
+
+/* === Week 9 Specific Styles === */
+
+.typography-section.week9 { /* Grid layout override */
+  grid-template-columns: 40% 60%;
+}
+
+.typography-canvas.week9 { /* Canvas override */
+  height: 400px;
+  margin: 0; /* Override general centering */
+  max-width: none; /* Override general max-width */
+  box-shadow: none; /* Override general shadow */
+  /* border-radius: 20px; Inherited */
+}
+
+
+/* === Week 10 Specific Styles === */
+
+#typography-canvas.week10 { /* Canvas container override (ID selector) */
+  width: 100%;
+  height: auto;
+  max-width: 700px;
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  margin: 20px auto; /* Centering for W10 */
+  display: block;
+  border-radius: 0; /* Override general radius */
+  box-shadow: none; /* Override general shadow */
+  background-color: transparent; /* Explicitly transparent if needed over general */
+  overflow: visible; /* Allow maze elements? Check if needed */
+}
+
+#typography-canvas.week10 canvas{ /* Inner canvas positioning */
+   position: static; /* Let container position it */
+   width: 100% !important;
+   height: 100% !important;
+}
+
+#arrow-controls {
+  display: none; /* Hide by default */
+  margin-top: 15px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+}
+.middle-arrow-row {
+  display: flex;
+  user-select: none;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+.arrow-button {
+  border: 1px solid var(--text-color, #D9D9D9);
+  background-color: rgba(217, 217, 217, 0.8); /* Default state */
+  color: var(--background-color, #0300BF); /* Default state */
+  padding: 10px 0;
+  width: 60px;
+  height: 50px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.8em;
+  font-weight: bold;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.arrow-button:hover {
+  background-color: var(--text-color, #D9D9D9); /* Hover state */
+  color: var(--background-color, #0300BF); /* Hover state */
+}
+.arrow-button:active {
+  background-color: var(--background-color); /* Use variable */
+  color: var(--text-color);              /* Use variable */
+  transform: scale(0.95);
+}
+
+#win-content { /* Win screen container */
+  display: flex; /* Hidden via .hidden class initially */
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--background-color); /* Uses theme color */
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+}
+#win-content.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out;
+}
+.win-article {
+  padding-right: 15px;
+  flex: 2;
+  margin-bottom: 15px;
+}
+.win-article h2 {
+  margin-bottom: 10px;
+  color: var(--text-color); /* Use theme text color */
+}
+.win-article p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-family:monospace;
+  font-size: .85em;
+  color: var(--text-color); /* Use theme text color */
+}
+.win-image {
+  flex: 1;
+  text-align: center;
+}
+.win-image img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+.win-image small {
+  color: red;
+  display: block;
+  margin-top: 5px;
+}
+
+#typography-canvas-container.hidden, /* Hides W10 canvas container */
+#arrow-controls.hidden { /* Hides W10 arrows */
+   display: none !important;
+}
+
+
+/* === Week 11 Specific Styles === */
+
+.summary-section { /* Text summary layout for W11 */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  box-sizing: border-box;
+  user-select: none;
+}
+.summary-section h2 {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+.summary-section p {
+  font-size: 0.95em;
+  font-family: monospace;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.interactive-project-section { /* Container for controls + canvas in W11 */
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.interactive-project-section h2 {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.controls-container { /* Button/Input container for W11 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: rgba(0,0,0, 0.1);
+  border-radius: 8px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.controls-container input[type="text"] {
+  padding: 10px 15px;
+  border: 1px solid var(--text-color);
+  background-color: var(--canvas-bg-color, #f0f0e0); /* Default state */
+  color: var(--background-color); /* Default state */
+  font-family: monospace;
+  font-size: 1em;
+  border-radius: 4px;
+  flex-grow: 1;
+  min-width: 200px;
+  transition: background-color 0.2s ease, color 0.2s ease; /* Add transition */
+}
+.controls-container input[type="text"]:focus { /* Focus state */
+  background-color: var(--background-color); /* Use variable */
+  color: var(--text-color);              /* Use variable */
+  outline: 1px solid var(--text-color);  /* Use variable for outline */
+}
+
+.controls-container button,
+.controls-container select {
+  padding: 10px 15px;
+  border: 1px solid var(--text-color);
+  background-color: var(--control-bg-color, rgba(217, 217, 217, 0.8)); /* Default state */
+  color: var(--control-text-color, var(--background-color)); /* Default state */
+  font-family: 'TronicaMono', monospace;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  text-transform: uppercase;
+}
+.controls-container button:hover,
+.controls-container select:hover {
+  background-color: var(--background-color); /* Use variable */
+  color: var(--text-color);              /* Use variable */
+}
+.controls-container button:active {
+  background-color: var(--background-color); /* Use variable */
+  color: var(--text-color);              /* Use variable */
+  transform: scale(0.98); /* Keep consistent active feedback */
+}
+.controls-container select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" fill="%230300BF"><polygon points="0,0 10,0 5,5"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+.typography-canvas.week11 { /* Canvas override for W11 */
+  height: 500px;
+  background-color: #2a3a6a; /* Fallback */
+  background-image: url('../img/blueprint_texture.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+  /* Inherits general .typography-canvas styles like max-width, margin, radius etc. */
+}
+
+
+/* === Blueprint Styles (Example/Unused?) === */
+/* These seem specific and might conflict if not intended for the current page */
+/* Keep commented out unless needed for a specific week */
+/*
+#typography-canvas.blueprint-bg { ... }
+#typography-canvas .interactive-blueprint { ... }
+#typography-canvas .letter { ... }
+#typography-canvas .letter.is-hovering { ... }
+#typography-canvas .letter.is-hovering::before,
+#typography-canvas .letter.is-hovering::after { ... }
+#typography-canvas .letter.is-finalized { ... }
+#typography-canvas .letter.is-hovering-css { ... }
+#typography-canvas .letter.is-finalizing { ... }
+*/
+
+/* === Utility Classes === */
+
+.rationale-group p{
+color: var(--text-color);
+  font-size:.85em;
+  font-family: monospace;
+  line-height: 1.8;
+  padding-top:20px;
+}
+
+.hidden {
+  display: none !important; /* Force hide */
+}
+
+.typography-section.originalWork{
+  margin-top:125px;
+}
+
+/* CARD — now sized automatically by the front image */
+.card{
+  display:inline-block;        /* shrink‑wrap to image */
+  position:relative;           /* anchor the back face */
+  perspective:600px;
+  cursor:pointer;
+  right:-25%;
+}
+
+/* BOTH FACES */
+.card img{
+  display:block;               /* removes the little inline gap */
+  width:50%;                  /* fill the card’s width … */
+  height:auto;                 /* … but keep aspect ratio */
+  backface-visibility:hidden;
+  transition:transform .5s;
+  border:2px white solid;
+}
+
+/* BACK FACE overlays the front */
+.card .back{
+  position:absolute;
+  inset:0;                     /* top:0 right:0 bottom:0 left:0 */
+  transform:rotateY(180deg);   /* start hidden */
+}
+
+/* FLIP STATES */
+.card.flip .front{ transform:rotateY(180deg); }
+.card.flip .back { transform:rotateY(360deg); }   /* ends facing us */
+
+
+/* === Media Queries === */
+
+/* Medium Screens / Tablets */
+@media (max-width: 768px) {
+  .typography-section { /* Stack summary/canvas */
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
-  
-  /* Typography Section Styling */
-  .typography-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 90vw;
-    margin-top: 30px;
-    gap:50px;
-  }
-  
   .summary-group,
   .typography-group {
-    flex: 1 1 45%;
-    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+      padding-right:0px;
+  }
+  .summary-group { /* Center text block when stacked */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 90%; /* Limit width */
   }
 
-  .summary-group{
-    max-width:40%;
-  }
-  
-  .summary-group h2,
-  .typography-group h2 {
-    font-size: 1.6em;
-    margin-bottom: 10px;
-  }
-  
-  .summary-group p {
-    font-size: .9em;
-    font-family: monospace;
-    line-height: 2;
-    max-width: 100%; /* now relative to .summary-group */
-    margin-top:20px;
+  .controls-container { /* Stack W11 controls */
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  /* Ensures the container is full-size and no scrollbars */
-.typography-canvas {
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  position: relative; /* if needed */
-  border-radius:20px;
+  .typography-canvas:not(#typography-canvas.week10):not(.typography-canvas.week11) { /* Adjust default canvas height */
+    height: 250px; /* Applies to W1, W2, W3, W4, W5, W9 */
+  }
+   .typography-canvas.week11 { /* Adjust W11 height */
+      height: 400px;
+   }
+   /* Week 10 (#typography-canvas.week10) uses aspect-ratio, no height set */
+
+  #win-content { /* Stack W10 win content */
+    flex-direction: column;
+  }
+  .win-article { margin-bottom: 15px; padding-right: 0;}
+  .win-image { padding-left: 0; }
 }
 
-    /* Typography Canvas Container */
-    .typography-canvas.week1 {
-      width: 100%;
-      height:300px;
-      max-width: 100%;
-      margin: 0 auto;
-      position: relative;
-      padding-top: 0px; /* Maintain a 1:1 aspect ratio (square) */
-    }
-
-    .typography-canvas.week2{
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-      position: relative; /* if needed */
-      border-radius:20px;
-    }
-
-    .typography-canvas.week3 {
-      width: 90%;
-      max-width: auto; /* Adjust max width as needed */
-      height: 18vw; /* Fixed height */
-      position: relative;
-      box-shadow: 15px 15px 15px rgb(15, 0, 113);
-      border-radius: 20px;
-    }    
-    
-    .typography-canvas.week4 {
-      width: 100%;
-      height:200px; /* Fixed height */
-      overflow: hidden;
-      position: relative;
-      border-radius: 20px;
-    }
-
-    .typography-canvas.week5 {
-      border-radius:0;
-    }
-
-    .typography-canvas.week6 {
-      background-color: #0300BF;
-      overflow: hidden;
-      width:100%;
-    }    
-
-    .summary-group.week5,
-    .typography-group.week5 {
-      flex: 0 0 100%;
-      box-sizing: border-box;
-    }
-
-    .summary-group.week6,
-    .typography-group.week6 {
-      flex: 0 0 100%;
-      box-sizing: border-box;
-    }
-
-    
-    
-  /* p5 canvas inside typography-canvas */
-  .typography-canvas canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;  /* Fill container width */
-    height: 100% !important; /* Fill container height, preserving 1:1 aspect ratio */
+/* Mobile Screens */
+@media (max-width: 490px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100vw;
   }
+
+  /* Homepage adjustments */
+  .hero { margin-bottom: 0px; height: 400px; }
+  .hero .background-text { top: 80px; left: 0; font-size: 5.5em; }
+  .hero canvas { touch-action: none; -ms-touch-action: none; }
+  .navigation { margin: 50px 0; }
+  .navigation h2 { font-size: 2em; margin-bottom: 60px; }
+  .navigation ul li { margin-top: 30px; }
+  .navigation ul li a { font-size: 1.4em; margin-bottom: 40px; }
+  .input-info-img { display: none; }
+  .logo-img { width: 65px; }
+
+  /* Project Page Adjustments */
+  .projects-navbar ul li a { font-size: 1em; }
+  .projects-navbar ul li:nth-child(2) { display: none; } /* Hide 'rationale' link */
+  .project_selection ul li a { font-size: 1em; }
+  .projects-footer .left-img { width: 180px; }
+  .projects-footer .right-img { width: 70px; }
+
+  /* Title/Summary Adjustments */
+  .title-section { margin-top: 80px; margin-bottom: 30px; }
+  .title-section h1 { font-size: 1.4em; }
+  .summary-section h2,
+  .interactive-project-section h2,
+  .summary-group h2,
+  .typography-group h2 { /* Reduce all H2 sizes */
+      font-size: 1.2em;
+  }
+
+  /* Canvas heights Adjustments */
+   .typography-canvas:not(#typography-canvas.week10):not(.typography-canvas.week11) { /* Adjust default canvas height */
+    height: 250px; /* Applies to W1, W2, W3, W4, W5, W9 */
+  }
+   .typography-canvas.week11 { /* Adjust W11 height */
+      height: 350px;
+   }
+   /* Week 10 (#typography-canvas.week10) uses aspect-ratio, no height set */
+
+
+  /* Show On-Screen Keyboard for W3 */
+  .on-screen-keyboard {
+    display: block !important; /* Added !important to increase specificity */
+  }
+
+  /* Show Arrow Controls for W10 */
+  #arrow-controls {
+    display: flex !important; /* Added !important to increase specificity */
+  }
+}

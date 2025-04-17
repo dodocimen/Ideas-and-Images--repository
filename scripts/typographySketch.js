@@ -1,93 +1,109 @@
-// glassEffectSmallScaled.js
-// Same code, smaller canvas, smaller text, smaller ellipse,
-// plus a custom font loaded in preload().
+// Responsive p5 sketch: typographySketch.js
 
-let pg;
-let customFont;
+let pg;         // Offscreen graphics buffer for effects
+let customFont; // Custom font variable
 
-// Preload the custom font
+// Preload the custom font before the sketch starts
 function preload() {
-  // Adjust the path/filename as needed (e.g., ./fonts/YourCustomFont.ttf)
+  // Adjust the path to your custom font as needed
   customFont = loadFont('./fonts/Bodoni.ttf');
 }
 
 function setup() {
-
-  // Create a smaller canvas and parent it to #typography-canvas
-  const canvas = createCanvas(300, 200);
+  // Get the container element that holds the canvas
+  const container = document.getElementById('typography-canvas');
+  
+  // Create a canvas that fills the container's width and height
+  let canvas = createCanvas(container.offsetWidth, container.offsetHeight);
+  // Parent the canvas to the container so it inherits its layout
   canvas.parent("typography-canvas");
 
-  noCursor();
-  colorMode(HSB);
+  noCursor();      // Hide the cursor on the canvas
+  colorMode(HSB);  // Use Hue, Saturation, Brightness mode
 
-  // Offscreen buffer, same size
-  pg = createGraphics(300, 200);
-  pg.noSmooth();
-  pg.colorMode(HSB);
+  // Create an offscreen graphics buffer (pg) with the same dimensions
+  pg = createGraphics(container.offsetWidth, container.offsetHeight);
+  pg.noSmooth();      // Disable smoothing for a pixelated effect (if desired)
+  pg.colorMode(HSB);  // Ensure the offscreen buffer uses the same color mode
 
-  // Use custom font in both the main canvas & pg if desired
+  // Set the custom font for text rendering in both the main canvas and pg
   textFont(customFont);
   pg.textFont(customFont);
 }
 
 function draw() {
+  // Calculate a dynamic hue value based on the frame count
   let H = frameCount / 3 % 360;
 
-  // Main background
-  // background("#0300BF");
+  // Clear the main canvas background with the defined color
   background("#0300BF");
 
-
-  // Draw text & ellipse onto pg
+  // --- Offscreen Graphics (pg) ---
+  // Draw text onto pg
   pg.fill(H, 100, 100);
-  // Use custom font
   pg.textFont(customFont);
-  pg.textSize(80);
-
+  pg.textSize(150);
   pg.push();
+    // Center the text on the offscreen buffer
     pg.translate(width / 2, height / 2);
     pg.textAlign(CENTER, CENTER);
     pg.textLeading(0);
     pg.text("SELF", 0, 0);
   pg.pop();
 
+  // Draw a small ellipse that follows the mouse on pg
   pg.push();
     pg.noStroke();
     pg.fill(H, 100, 100);
-    // smaller ellipse size from 15 to 8
-    pg.ellipse(mouseX, mouseY, 8);
+    pg.ellipse(mouseX, mouseY, 10);
   pg.pop();
 
-  // Same tile logic, still 20x20 tiles
-  let tilesX = 15;
-  let tilesY = 15;
+  // --- Tiling Distortion Effect ---
+  // Define the number of tiles in X and Y directions
+  let tilesX = 8;
+  let tilesY = 6;
   
+  // Calculate each tile's width and height based on the canvas size
   let tileW = int(width / tilesX);
   let tileH = int(height / tilesY);
 
+  // Loop over a grid to copy parts of pg onto the main canvas with a distortion
   for (let y = 0; y < tilesY; y++) {
     for (let x = 0; x < tilesX; x++) {
-      // WAVE
+      // Compute a wave offset for dynamic distortion
       let wave = int(sin((frameCount + x * y) * 0.01) * 12);
 
-      // SOURCE
+      // Source parameters from the offscreen buffer (pg)
       let sx = x * tileW + wave;
       let sy = y * tileH + wave;
       let sw = tileW;
       let sh = tileH;
 
-      // DESTINATION
+      // Destination parameters on the main canvas
       let dx = x * tileW;
       let dy = y * tileH;
       let dw = tileW;
       let dh = tileH;
 
+      // Copy a portion of pg to the main canvas with dynamic offsets influenced by mouse position
       copy(
         pg,
-        sx, sy, sw + mouseX - int(width / 2),
-        sh + mouseY - int(height / 2),
-        dx, dy, dw, dh
+        sx, sy,
+        sw + mouseX - int(width / 2), // Adjust width based on mouseX
+        sh + mouseY - int(height / 2), // Adjust height based on mouseY
+        dx, dy,
+        dw, dh
       );
     }
   }
+}
+
+// This function automatically runs whenever the window is resized.
+// It resizes both the main canvas and the offscreen graphics buffer to fit the container.
+function windowResized() {
+  const container = document.getElementById('typography-canvas');
+  // Resize the main canvas to the container's new width and height
+  resizeCanvas(container.offsetWidth, container.offsetHeight);
+  // Also update the offscreen graphics buffer (pg) to the new dimensions
+  pg.resizeCanvas(container.offsetWidth, container.offsetHeight);
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>W5 - Interactive Typography</title>
+    <title>W5 - Muse</title>
     <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/projectContent.css" />
@@ -14,7 +14,6 @@
       <ul>
         <li><a href="./index.html">home</a></li>
         <li><a href="#">rationale</a></li>
-        <li><a href="#">website_info</a></li>
         <li><a class="active" href="#">the_project</a></li>
       </ul>
     </nav>
@@ -28,10 +27,10 @@
           <li><a href="./projectW3.html">W3</a></li>
           <li><a href="./projectW4.html">W4</a></li>
           <li><a href="./projectW5.html" class="active">W5</a></li>
-          <li><a href="./projectW6.html">W6</a></li>
-          <li><a href="#">-</a></li>
+
           <li><a href="./projectW9.html">W9</a></li>
           <li><a href="./projectW10.html">W10</a></li>
+          <li><a href="./projectW11.html">W11</a></li>
         </ul>
       </nav>
     </div>
@@ -48,14 +47,25 @@
       <section class="typography-section">
         <!-- Summary Group (Left) -->
         <div class="summary-group week5">
-          <h2>explanation</h2>
+          <h2>about</h2>
           <p>
-            This is the summary of Project Week 1. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Vestibulum vitae ligula eget dolor
-            ultricies blandit.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vestibulum vitae ligula eget dolor ultricies blandit.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae
-            ligula eget dolor ultricies blandit.
+            This project is about homesickness, but not in a sad way — more like
+            a quiet, personal feeling that can inspire growth.
+            <br />
+            <br />
+            In the interactive piece, words like "LONELY", "DISTANT", "HOME"
+            float around the screen. The user can click and drag them. When a
+            word touches the house in the center, it goes into a “hiding” state
+            — it dims and sends out soft beams of light. After a short time, it
+            bursts back out and starts drifting again. This reflects how
+            sometimes we hide parts of how we feel — like homesickness — but
+            those feelings don’t disappear.
+            <br />
+            <br />
+            Instead, they grow inside and turn into something powerful. That
+            moment of hiding represents reflection. The light shows that
+            inspiration is building, and when the word returns, it’s stronger
+            than before.
           </p>
         </div>
         <!-- Typography Group (Right) -->
@@ -65,7 +75,37 @@
           <div id="typography-canvas" class="typography-canvas week5"></div>
         </div>
       </section>
+
+      <section class="typography-section originalWork">
+        <div class="rationale-group">
+          <h2>rationale</h2>
+          <p>
+            Homsi, A shy, lost little glowing yellow creature hiding behind a
+            blue house in the dark. He represents homesickness. Not as sad- ness
+            but as inspiration for growth and creativity. Missing home makes him
+            feel like he’s growing as a person and it inspires him to achieve
+            success, pushes him to dream bigger and become his best self.
+          </p>
+        </div>
+        <div class="work-group">
+          <div class="card">
+            <img class="front" src="./img/homsi.png" alt="Front Image" />
+            <img class="back" src="./img/homsiback.png" alt="Back Image" />
+          </div>
+        </div>
+      </section>
     </main>
+
+    <script>
+      // Find the card element
+      const cardElement = document.querySelector(".card");
+
+      // Add a click listener
+      cardElement.addEventListener("click", function () {
+        // Toggle the 'flip' class on the card element
+        cardElement.classList.toggle("flip");
+      });
+    </script>
 
     <!-- Include the project navigation script -->
     <script src="./scripts/projectSketch.js"></script>

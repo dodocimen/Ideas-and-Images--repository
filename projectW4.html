@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Project W1 - Interactive Typography</title>
+    <title>W4 - Inside Outside</title>
     <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/projectContent.css" />
@@ -14,7 +14,6 @@
       <ul>
         <li><a href="./index.html">home</a></li>
         <li><a href="#">rationale</a></li>
-        <li><a href="#">website_info</a></li>
         <li><a class="active" href="#">the_project</a></li>
       </ul>
     </nav>
@@ -28,10 +27,9 @@
           <li><a href="./projectW3.html">W3</a></li>
           <li><a href="./projectW4.html" class="active">W4</a></li>
           <li><a href="./projectW5.html">W5</a></li>
-          <li><a href="./projectW6.html">W6</a></li>
-          <li><a href="#">-</a></li>
           <li><a href="./projectW9.html">W9</a></li>
           <li><a href="./projectW10.html">W10</a></li>
+          <li><a href="./projectW11.html">W11</a></li>
         </ul>
       </nav>
     </div>
@@ -48,14 +46,23 @@
       <section class="typography-section">
         <!-- Summary Group (Left) -->
         <div class="summary-group">
-          <h2>week_summary</h2>
+          <h2>about</h2>
           <p>
-            This is the summary of Project Week 1. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Vestibulum vitae ligula eget dolor
-            ultricies blandit.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vestibulum vitae ligula eget dolor ultricies blandit.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae
-            ligula eget dolor ultricies blandit.
+            This project explores the feeling of déjà vu — when something feels
+            familiar, but you can’t fully explain it.
+            <br />
+            <br />
+            The words on screen start out scrambled, and slowly unscramble,
+            revealing words like "MEMORY", "BLURRED", "AGAIN". The idea is that
+            things start out unclear, then seem clear for a moment, and then
+            disappear — just like déjà vu. You recognize something, but only for
+            a second, and then it’s gone again.
+            <br />
+            <br />
+            This was based on the same idea behind my Week 4 poster — where a
+            man's head is covered in clouds, and his image repeats in the
+            background. Both the interaction and the visual design are meant to
+            show how déjà vu feels: familiar, blurry, and hard to explain.
           </p>
         </div>
         <!-- Typography Group (Right) -->
@@ -64,7 +71,45 @@
           <div id="typography-canvas" class="typography-canvas week4"></div>
         </div>
       </section>
+
+      <section class="typography-section originalWork">
+        <div class="rationale-group">
+          <h2>rationale</h2>
+          <p>
+            This poster visually represents the mysterious and unclear nature of
+            déjà vu. The man’s head is covered in smoke / clouds, symbolizing
+            the foggy and uncertain feeling that comes with déjà vu.
+            <br />
+            <br />
+            The background features three duplicates of the man, representing
+            the sensation of having "been there before" and experiencing the
+            same moment again. The design reflects the strange, dream-like
+            nature of déjà vu—familiar yet unclear.
+          </p>
+        </div>
+        <div class="work-group">
+          <div class="card">
+            <img class="front" src="./img/insideout.png" alt="Front Image" />
+            <img
+              class="back"
+              src="./img/insideout(back).png"
+              alt="Back Image"
+            />
+          </div>
+        </div>
+      </section>
     </main>
+
+    <script>
+      // Find the card element
+      const cardElement = document.querySelector(".card");
+
+      // Add a click listener
+      cardElement.addEventListener("click", function () {
+        // Toggle the 'flip' class on the card element
+        cardElement.classList.toggle("flip");
+      });
+    </script>
 
     <!-- Include the project navigation script -->
     <script src="./scripts/projectSketch.js"></script>

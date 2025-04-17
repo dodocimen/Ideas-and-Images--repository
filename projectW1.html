@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Project W1 - Interactive Typography</title>
+    <title>W1 - Interactive Typography</title>
     <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/projectContent.css" />
@@ -14,7 +14,6 @@
       <ul>
         <li><a href="./index.html">home</a></li>
         <li><a href="#">rationale</a></li>
-        <li><a href="#">website_info</a></li>
         <li><a class="active" href="#">the_project</a></li>
       </ul>
     </nav>
@@ -28,10 +27,10 @@
           <li><a href="./projectW3.html">W3</a></li>
           <li><a href="./projectW4.html">W4</a></li>
           <li><a href="./projectW5.html">W5</a></li>
-          <li><a href="./projectW6.html">W6</a></li>
-          <li><a href="#">-</a></li>
+
           <li><a href="./projectW9.html">W9</a></li>
           <li><a href="./projectW10.html">W10</a></li>
+          <li><a href="./projectW11.html">W11</a></li>
         </ul>
       </nav>
     </div>
@@ -48,21 +47,30 @@
       <section class="typography-section">
         <!-- Summary Group (Left) -->
         <div class="summary-group">
-          <h2>week_summary</h2>
+          <h2>about</h2>
           <p>
-            This is the summary of Project Week 1. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Vestibulum vitae ligula eget dolor
-            ultricies blandit.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vestibulum vitae ligula eget dolor ultricies blandit.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. amet, consectetur
-            adipiscing elit. Vestibulum vitae ligula eget dolor ultricies
-            blandit. Ipsum dolor sit am ipsum dolor sit amet, consectetur
-            adipiscing elit.
+            For my Week 1 project, I created an interactive typography piece
+            based on the word "SELF". The idea was to move beyond a traditional
+            portrait and instead explore how I experience identity — not as
+            something fixed, but as something in motion.
+            <br />
+            <br />
+            The design was inspired by the image of multiple mirrors. The visual
+            distortion, triggered by the movement of the cursor, breaks the word
+            apart into pieces — I was thinking about how my thoughts, feelings,
+            and identity can feel all over the place sometimes.
+            <br />
+            <br />
+            That’s why the word "SELF" gets distorted and broken up when you
+            move the cursor. The interaction is part of the message. As you move
+            around, the word shifts and changes — just like how I’m still
+            figuring myself out. It’s not clear or perfect, but that’s okay.
+            This piece is about showing that process.
           </p>
         </div>
         <!-- Typography Group (Right) -->
         <div class="typography-group">
-          <h2>move cursor</h2>
+          <h2>move cursor / drag around</h2>
 
           <!-- p5 Canvas container -->
           <div id="typography-canvas" class="typography-canvas week1"></div>
@@ -76,5 +84,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <!-- Typography p5 Sketch Script -->
     <script src="./scripts/typographySketch.js"></script>
+    <script>
+      document.querySelectorAll(".card").forEach((c) => {
+        c.addEventListener("click", () => c.classList.toggle("flip"));
+      });
+    </script>
   </body>
 </html>
