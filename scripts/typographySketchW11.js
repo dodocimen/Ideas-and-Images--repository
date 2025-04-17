@@ -1,26 +1,26 @@
-// === Constants and Global Variables ===
+
 const MAX_IMAGE_DIMENSION = 50;
 const MIN_IMAGE_DIMENSION = 20;
 const PARTICLE_COUNT = 500;
 const DEFAULT_TEXT_SIZE = 50;
 const WORD_LENGTH_SHORT = 3;
 const WORD_LENGTH_LONG = 12;
-const AVOIDANCE_RADIUS = 60;       // <<< How close floating particles get before avoiding (pixels)
-const AVOIDANCE_FORCE_MAG = .2;  // <<< Strength of the push-away force
+const AVOIDANCE_RADIUS = 60;       
+const AVOIDANCE_FORCE_MAG = .2;  
 
 let canvas;
 let wordInput, submitButton, objectSetSelector, saveButton;
 let font;
 let particles = [];
-let currentPoints = []; // Target points for the current word - NOW USED FOR AVOIDANCE
+let currentPoints = []; 
 let objectImages = {};
 let currentSet = 'mixed';
 let currentDisplayDimension = MAX_IMAGE_DIMENSION;
 
-// === PRELOAD ASSETS === (Unchanged)
+
 function preload() {
   try {
-    font = loadFont('./fonts/Roboto-Regular.ttf'); // <<<--- ENSURE PATH IS CORRECT
+    font = loadFont('./fonts/Roboto-Regular.ttf'); 
     console.log("Font loading attempted.");
   } catch (error) { console.error("Error loading font:", error); alert("ERROR loading font."); }
 
@@ -39,7 +39,7 @@ function preload() {
   } else { console.log("Image sets loaded:", Object.keys(objectImages).map(key => `${key}: ${objectImages[key].length} images`).join(', ')); }
 }
 
-// === SETUP SKETCH === (Unchanged)
+
 function setup() {
   let canvasContainer = select('#typography-canvas');
   if (!canvasContainer) { console.error("ERROR: Canvas container '#typography-canvas' not found!"); return; }
@@ -67,7 +67,7 @@ function setup() {
   console.log("DIY Drift Typography Initialized with set:", currentSet);
 }
 
-// === DRAW LOOP === (Unchanged)
+
 function draw() {
   if (!canvas) return;
   clear();
@@ -77,9 +77,9 @@ function draw() {
   }
 }
 
-// === PARTICLE CLASS === (MODIFIED: Added avoid() method and behaviors() logic)
+
 class ImageParticle {
-    constructor(x, y, imgSet) { /* Constructor unchanged from previous version */
+    constructor(x, y, imgSet) { 
         this.pos = createVector(x, y); this.vel = p5.Vector.random2D().mult(random(0.5, 2)); this.acc = createVector(0, 0);
         this.target = null; this.imgSet = imgSet; this.img = null;
         this.baseRadius = (MAX_IMAGE_DIMENSION + MIN_IMAGE_DIMENSION) / 2 * 0.4;
@@ -93,31 +93,31 @@ class ImageParticle {
         }
     }
 
-    // *** MODIFIED behaviors() method ***
+    
     behaviors() {
         if (this.target) {
-            // Particle has a target - move towards it
+            
             let arriveForce = this.arrive(this.target);
             this.applyForce(arriveForce);
             this.state = 'seeking';
         } else {
-            // Particle is floating
-            let floatForce = this.float(); // Get base floating force
+            
+            let floatForce = this.float(); 
             this.applyForce(floatForce);
 
-            // *** ADD AVOIDANCE if a word is formed ***
+            
             if (currentPoints.length > 0) {
-                let avoidForce = this.avoid(currentPoints); // Calculate avoidance force
-                avoidForce.mult(0.8); // Apply avoidance force with slightly less weight than float? (optional tuning)
+                let avoidForce = this.avoid(currentPoints); 
+                avoidForce.mult(0.8); 
                 this.applyForce(avoidForce);
             }
             this.state = 'floating';
         }
     }
 
-    applyForce(force) { this.acc.add(force); } // Unchanged
+    applyForce(force) { this.acc.add(force); } 
 
-    update() { /* Unchanged */
+    update() { 
         this.vel.add(this.acc);
         if (this.state === 'seeking') this.vel.limit(this.maxSpeed); else this.vel.limit(this.floatMaxSpeed);
         this.pos.add(this.vel); this.acc.mult(0); this.vel.mult(this.damping);
@@ -127,7 +127,7 @@ class ImageParticle {
         this.rotation += this.rotationSpeed;
     }
 
-    display() { /* Unchanged */
+    display() { 
         if (!this.img || !this.img.width || this.img.height <= 0) return;
         let targetDim = currentDisplayDimension; let scaledW, scaledH;
         let ow = this.img.width; let oh = this.img.height; let aspectRatio = ow / oh;
@@ -137,7 +137,7 @@ class ImageParticle {
         imageMode(CENTER); image(this.img, 0, 0, finalW, finalH); pop();
     }
 
-    arrive(target) { /* Unchanged */
+    arrive(target) { 
         let desired = p5.Vector.sub(target, this.pos); let d = desired.mag(); let speed = this.maxSpeed;
         let arrivalRadius = 100; if (d < arrivalRadius) speed = map(d, 0, arrivalRadius, 0, this.maxSpeed);
         desired.setMag(speed); let steer = p5.Vector.sub(desired, this.vel); steer.limit(this.maxForce);
@@ -149,68 +149,68 @@ class ImageParticle {
         if (d < this.arrivalThreshold * 2) this.vel.mult(0.9); return steer;
     }
 
-    // *** MODIFIED float() method to return the force ***
+    
     float() {
         let angle = noise(this.pos.x * 0.005, this.pos.y * 0.005, frameCount * 0.005 + this.wobbleOffset) * TWO_PI * 4;
         let noiseForce = p5.Vector.fromAngle(angle);
-        noiseForce.setMag(this.maxForce * 0.1); // Gentle force
-        // Removed this.applyForce(noiseForce);
-        return noiseForce; // Return the calculated force
+        noiseForce.setMag(this.maxForce * 0.1); 
+        
+        return noiseForce; 
     }
 
-    // *** NEW avoid() method ***
+    
     avoid(pointsToAvoid) {
         let totalAvoidanceForce = createVector(0, 0);
         let neighbors = 0;
 
         for (let i = 0; i < pointsToAvoid.length; i++) {
-            // Use the raw point vector {x, y} from currentPoints
+            
             let targetPoint = createVector(pointsToAvoid[i].x, pointsToAvoid[i].y);
             let d = p5.Vector.dist(this.pos, targetPoint);
 
-            // Check if the point is within the avoidance radius
+            
             if (d > 0 && d < AVOIDANCE_RADIUS) {
-                let diff = p5.Vector.sub(this.pos, targetPoint); // Force pointing away from the target point
+                let diff = p5.Vector.sub(this.pos, targetPoint); 
                 diff.normalize();
-                diff.div(d); // Weight by distance (stronger force when closer)
+                diff.div(d); 
                 totalAvoidanceForce.add(diff);
                 neighbors++;
             }
         }
 
-        // Average the force if neighbors were found
+        
         if (neighbors > 0) {
             totalAvoidanceForce.div(neighbors);
-            totalAvoidanceForce.setMag(AVOIDANCE_FORCE_MAG); // Apply defined magnitude
-            // Optional: Steer the avoidance force
-            // let steer = p5.Vector.sub(totalAvoidanceForce, this.vel);
-            // steer.limit(this.maxForce * 0.5); // Limit the avoidance steering force
-            // return steer;
-            return totalAvoidanceForce; // Return the raw force for now
+            totalAvoidanceForce.setMag(AVOIDANCE_FORCE_MAG); 
+            
+            
+            
+            
+            return totalAvoidanceForce; 
         } else {
-            return createVector(0, 0); // No avoidance needed
+            return createVector(0, 0); 
         }
     }
 
 
-    checkEdges() { /* Unchanged */
+    checkEdges() { 
         let r = (MAX_IMAGE_DIMENSION + MIN_IMAGE_DIMENSION) / 2 * 0.4 * this.scale;
         if (this.pos.x > width + r) this.pos.x = -r; if (this.pos.x < -r) this.pos.x = width + r;
         if (this.pos.y > height + r) this.pos.y = -r; if (this.pos.y < -r) this.pos.y = height + r;
     }
-    updateImage(newImgSet) { /* Unchanged */
+    updateImage(newImgSet) { 
         if (!newImgSet || newImgSet.length === 0) return; this.imgSet = newImgSet; this.img = random(this.imgSet);
     }
-    releaseTarget() { /* Unchanged */
+    releaseTarget() { 
         if (this.target !== null) this.vel.add(p5.Vector.random2D().mult(random(1, 3))); this.target = null; this.state = 'floating';
     }
-} // End of ImageParticle Class
+} 
 
 
-// === HELPER FUNCTIONS ===
 
-// Initialize Particles (Unchanged)
-function initializeParticles(num) { /* ... unchanged ... */
+
+
+function initializeParticles(num) { 
     particles = []; let initialImgSet = objectImages[currentSet];
     if (!initialImgSet || initialImgSet.length === 0) {
         console.warn(`Image set '${currentSet}' empty. Falling back to 'mixed'.`); currentSet = 'mixed';
@@ -221,8 +221,8 @@ function initializeParticles(num) { /* ... unchanged ... */
     console.log(`Initialized ${particles.length} particles.`);
 }
 
-// handleWordSubmit Function (Unchanged)
-function handleWordSubmit() { /* ... unchanged ... */
+
+function handleWordSubmit() { 
     if (!wordInput) return; let word = wordInput.value().trim(); let wordLength = word.length;
     console.log(`--- Handling Word Submit: "${word}" (Length: ${wordLength}) ---`);
     console.log("Releasing all particle targets..."); for (let particle of particles) particle.releaseTarget(); currentPoints = [];
@@ -250,22 +250,22 @@ function handleWordSubmit() { /* ... unchanged ... */
     console.log(`--- Word Handling Complete for: "${word}" ---`);
 }
 
-// Change Object Set (Unchanged)
-function changeObjectSet() { /* ... unchanged ... */
+
+function changeObjectSet() { 
     if (!objectSetSelector) return; currentSet = objectSetSelector.value();
     console.log("Changing object set to:", currentSet); let newImgSet = objectImages[currentSet];
     if (!newImgSet || newImgSet.length === 0) { console.error(`Set '${currentSet}' empty. Reverting.`); currentSet = 'mixed'; objectSetSelector.selected('mixed'); newImgSet = objectImages[currentSet]; if (!newImgSet || newImgSet.length === 0) { console.error("Fallback 'mixed' set empty."); return; } }
     for (let particle of particles) particle.updateImage(newImgSet);
 }
 
-// Save Canvas Image (Unchanged)
-function saveCanvasImage() { /* ... unchanged ... */
+
+function saveCanvasImage() { 
     if (!wordInput) return; let filenameBase = 'diy_typography'; let wordPart = wordInput.value().trim().replace(/\s+/g, '_').toLowerCase();
     if (wordPart) filenameBase += '_' + wordPart; let filename = filenameBase + '_' + Date.now(); saveCanvas(filename, 'png');
 }
 
-// Window Resized (Unchanged)
-function windowResized() { /* ... unchanged ... */
+
+function windowResized() { 
     let canvasContainer = select('#typography-canvas');
     if (canvasContainer) { resizeCanvas(canvasContainer.width, canvasContainer.height); console.log("Canvas resized to:", width, height); if (currentPoints.length > 0 && typeof handleWordSubmit === 'function') { console.log("Recalculating points after resize..."); handleWordSubmit(); } }
     else { console.warn("Canvas container not found on resize."); }

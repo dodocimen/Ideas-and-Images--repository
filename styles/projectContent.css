@@ -1,4 +1,4 @@
-/* === General Page & Navigation Elements === */
+
 
 .hero {
   position: relative;
@@ -21,16 +21,16 @@
   z-index: 0;
   white-space: nowrap;
   text-align: center;
-  color: rgb(242, 0, 255); /* Note: This is separate from theme colors */
+  color: rgb(242, 0, 255); 
   line-height: 100%;
 }
 
-.hero canvas { /* p5 canvas on homepage */
+.hero canvas { 
   position: relative;
   z-index: 1;
 }
 
-.navigation { /* Homepage menu container */
+.navigation { 
   width: 100%;
   max-width: 1200px;
   text-align: center;
@@ -54,19 +54,19 @@
 
 .navigation ul li a {
   text-decoration: none;
-  color: var(--text-color); /* Default state */
-  background-color: transparent; /* Default state */
+  color: var(--text-color); 
+  background-color: transparent; 
   font-size: 1.5em;
   padding: 0px;
 }
 
 .navigation ul li a:hover,
 .navigation ul li a.active {
-  background-color: var(--text-color); /* Use variable */
-  color: var(--background-color);      /* Use variable */
+  background-color: var(--text-color); 
+  color: var(--background-color);      
 }
 
-.input-info-img { /* Image on homepage */
+.input-info-img { 
   position: absolute;
   bottom: 40px;
   left: 50px;
@@ -76,7 +76,7 @@
   -webkit-user-drag: none;
 }
 
-.logo-img { /* Logo on homepage */
+.logo-img { 
   position: fixed;
   top: 20px;
   right: 20px;
@@ -85,10 +85,10 @@
   user-select: none;
   -webkit-user-drag: none;
   z-index: 999;
-  /* cursor: pointer; Added via JS */
+  
 }
 
-/* === Project Page Structure Elements === */
+
 
 .project-content {
   padding: 20px;
@@ -96,7 +96,7 @@
   box-sizing: border-box;
 }
 
-.projects-navbar { /* Top nav on project pages */
+.projects-navbar { 
   width: 100%;
   border: 2px solid var(--text-color);
   background: transparent;
@@ -116,17 +116,17 @@
 .projects-navbar ul li a {
   text-decoration: none;
   font-size: 1.2em;
-  color: var(--text-color); /* Default state */
-  background-color: transparent; /* Default state */
+  color: var(--text-color); 
+  background-color: transparent; 
 }
 
 .projects-navbar ul li a:hover,
 .projects-navbar ul li a.active {
-  background-color: var(--text-color); /* Use variable */
-  color: var(--background-color);      /* Use variable */
+  background-color: var(--text-color); 
+  color: var(--background-color);      
 }
 
-.project_selection { /* Project list on theProject.html */
+.project_selection { 
   width: 100%;
   margin-top: 20px;
   border: 2px solid var(--text-color);
@@ -147,8 +147,8 @@
   display: flex;
   justify-content: space-between;
   text-decoration: none;
-  color: var(--text-color); /* Default state */
-  background-color: transparent; /* Default state */
+  color: var(--text-color); 
+  background-color: transparent; 
   font-size: 1.2em;
   padding: 10px 15px;
   border: 1px solid transparent;
@@ -156,8 +156,8 @@
 
 .project_selection ul li a:hover,
 .project_selection ul li a.active {
-  background-color: var(--text-color); /* Use variable */
-  color: var(--background-color);      /* Use variable */
+  background-color: var(--text-color); 
+  color: var(--background-color);      
 }
 
 .project_selection ul li a .word-left,
@@ -165,7 +165,7 @@
   display: block;
 }
 
-.projects-footer { /* Footer on theProject.html */
+.projects-footer { 
   width: 100%;
   margin: 20px auto;
   border: 2px solid var(--text-color);
@@ -186,12 +186,12 @@
   width: 250px;
 }
 
-.projects-footer .right-img { /* Logo in project footer */
+.projects-footer .right-img { 
   width: 80px;
-   /* cursor: pointer; Added via JS */
+   
 }
 
-.submenu-wrapper { /* Container for back button and week submenu */
+.submenu-wrapper { 
   display: flex;
   align-items: center;
   width: 100%;
@@ -202,8 +202,8 @@
 
 .go-back-btn {
   border: 2px solid var(--text-color);
-  background: transparent; /* Default state */
-  color: var(--text-color); /* Default state */
+  background: transparent; 
+  color: var(--text-color); 
   font-size: 1.2em;
   padding: 10px 15px;
   cursor: pointer;
@@ -213,11 +213,11 @@
 
 .go-back-btn:hover,
 .go-back-btn:active {
-  background-color: var(--text-color); /* Use variable */
-  color: var(--background-color);      /* Use variable */
+  background-color: var(--text-color); 
+  color: var(--background-color);      
 }
 
-.project-submenu { /* Week navigation submenu */
+.project-submenu { 
   flex-grow: 1;
   border: 2px solid var(--text-color);
   background: transparent;
@@ -236,18 +236,18 @@
 .project-submenu ul li a {
   text-decoration: none;
   font-size: 1.2em;
-  color: var(--text-color); /* Default state */
-  background-color: transparent; /* Default state */
+  color: var(--text-color); 
+  background-color: transparent; 
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .project-submenu ul li a:hover,
 .project-submenu ul li a.active {
-  background-color: var(--text-color); /* Use variable */
-  color: var(--background-color);      /* Use variable */
+  background-color: var(--text-color); 
+  color: var(--background-color);      
 }
 
-.title-section { /* Title area on individual project pages */
+.title-section { 
   width: 100%;
   max-width: 100vw;
   text-align: left;
@@ -260,7 +260,7 @@
 }
 
 .title-section h1 span {
-  color: #FF00C8; /* Specific span color - keeping distinct */
+  color: #FF00C8; 
 }
 
 .separator {
@@ -271,9 +271,9 @@
   margin: 0 auto 30px auto;
 }
 
-/* === General Typography/Content Section Layout === */
 
-.typography-section { /* General grid layout for project pages */
+
+.typography-section { 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
@@ -283,8 +283,8 @@
   align-items: start;
 }
 
-.summary-group, /* Left column (usually text) */
-.typography-group { /* Right column (usually canvas) */
+.summary-group, 
+.typography-group { 
   user-select: none;
   box-sizing: border-box;
   max-width: 100%;
@@ -307,23 +307,23 @@
   margin-top: 20px;
 }
 
-/* === General Typography Canvas Style === */
 
-.typography-canvas { /* Base style for p5 canvas containers */
+
+.typography-canvas { 
   width: 100%;
-  height: 400px; /* Default height */
-  max-width: 900px; /* Default max-width */
-  margin: 0 auto; /* Default centering */
+  height: 400px; 
+  max-width: 900px; 
+  margin: 0 auto; 
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
   border-radius: 20px;
   user-select: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Default shadow */
-  cursor: default; /* Default cursor */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+  cursor: default; 
 }
 
-/* General style for inner p5 canvas */
+
 #typography-canvas canvas {
   display: block;
   width: 100% !important;
@@ -331,10 +331,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Default position */
+  z-index: 1; 
 }
 
-/* Touch action for relevant weeks */
+
 .typography-canvas.week1,
 .typography-canvas.week2,
 .typography-canvas.week5,
@@ -344,22 +344,22 @@
 }
 
 
-/* === Week 1 Specific Styles === */
-/* No specific styles identified beyond .typography-canvas.week1 touch-action */
 
 
-/* === Week 2 Specific Styles === */
-/* No specific styles identified beyond .typography-canvas.week2 touch-action */
 
 
-/* === Week 3 Specific Styles === */
 
-.typography-canvas.week3 { /* Canvas override */
+
+
+
+
+
+.typography-canvas.week3 { 
   margin:50px 0 25px 0;
 }
 
 .on-screen-keyboard {
-  display: none; /* Hidden by default, shown via media query */
+  display: none; 
   width: 100%;
   max-width: 100vw;
   margin-top: 25px;
@@ -379,8 +379,8 @@
   font-family: 'TronicaMono', 'Courier New', Courier, monospace;
   font-size: 1.5em;
   font-weight: bold;
-  background-color: rgba(217, 217, 217, 0.8); /* Default state */
-  color: var(--background-color, #0300BF); /* Default state */
+  background-color: rgba(217, 217, 217, 0.8); 
+  color: var(--background-color, #0300BF); 
   border: none;
   border-radius: 4px;
   padding: 10px 0;
@@ -395,63 +395,63 @@
   transition: background-color 0.1s ease;
 }
 .key:active, .key.active-key-feedback {
-  background-color: var(--background-color); /* Use variable */
-  color: var(--text-color);              /* Use variable */
+  background-color: var(--background-color); 
+  color: var(--text-color);              
 }
 
 
-/* === Week 4 Specific Styles === */
-.typography-canvas.week4 { /* Canvas override */
+
+.typography-canvas.week4 { 
   height: 250px;
 }
-/* No week-specific styles identified */
 
 
-/* === Week 5 Specific Styles === */
+
+
 .typography-canvas.week5{
   height:250px;
 }
 
 
-/* === Week 9 Specific Styles === */
 
-.typography-section.week9 { /* Grid layout override */
+
+.typography-section.week9 { 
   grid-template-columns: 40% 60%;
 }
 
-.typography-canvas.week9 { /* Canvas override */
+.typography-canvas.week9 { 
   height: 400px;
-  margin: 0; /* Override general centering */
-  max-width: none; /* Override general max-width */
-  box-shadow: none; /* Override general shadow */
-  /* border-radius: 20px; Inherited */
+  margin: 0; 
+  max-width: none; 
+  box-shadow: none; 
+  
 }
 
 
-/* === Week 10 Specific Styles === */
 
-#typography-canvas.week10 { /* Canvas container override (ID selector) */
+
+#typography-canvas.week10 { 
   width: 100%;
   height: auto;
   max-width: 700px;
   aspect-ratio: 1 / 1;
   box-sizing: border-box;
-  margin: 20px auto; /* Centering for W10 */
+  margin: 20px auto; 
   display: block;
-  border-radius: 0; /* Override general radius */
-  box-shadow: none; /* Override general shadow */
-  background-color: transparent; /* Explicitly transparent if needed over general */
-  overflow: visible; /* Allow maze elements? Check if needed */
+  border-radius: 0; 
+  box-shadow: none; 
+  background-color: transparent; 
+  overflow: visible; 
 }
 
-#typography-canvas.week10 canvas{ /* Inner canvas positioning */
-   position: static; /* Let container position it */
+#typography-canvas.week10 canvas{ 
+   position: static; 
    width: 100% !important;
    height: 100% !important;
 }
 
 #arrow-controls {
-  display: none; /* Hide by default */
+  display: none; 
   margin-top: 15px;
   flex-direction: column;
   align-items: center;
@@ -467,8 +467,8 @@
 }
 .arrow-button {
   border: 1px solid var(--text-color, #D9D9D9);
-  background-color: rgba(217, 217, 217, 0.8); /* Default state */
-  color: var(--background-color, #0300BF); /* Default state */
+  background-color: rgba(217, 217, 217, 0.8); 
+  color: var(--background-color, #0300BF); 
   padding: 10px 0;
   width: 60px;
   height: 50px;
@@ -485,20 +485,20 @@
   -webkit-tap-highlight-color: transparent;
 }
 .arrow-button:hover {
-  background-color: var(--text-color, #D9D9D9); /* Hover state */
-  color: var(--background-color, #0300BF); /* Hover state */
+  background-color: var(--text-color, #D9D9D9); 
+  color: var(--background-color, #0300BF); 
 }
 .arrow-button:active {
-  background-color: var(--background-color); /* Use variable */
-  color: var(--text-color);              /* Use variable */
+  background-color: var(--background-color); 
+  color: var(--text-color);              
   transform: scale(0.95);
 }
 
-#win-content { /* Win screen container */
-  display: flex; /* Hidden via .hidden class initially */
+#win-content { 
+  display: flex; 
   flex-direction: column;
   padding: 20px;
-  background-color: var(--background-color); /* Uses theme color */
+  background-color: var(--background-color); 
   margin-top: 20px;
   max-width: 800px;
   margin-left: auto;
@@ -519,14 +519,14 @@
 }
 .win-article h2 {
   margin-bottom: 10px;
-  color: var(--text-color); /* Use theme text color */
+  color: var(--text-color); 
 }
 .win-article p {
   line-height: 1.6;
   margin-bottom: 10px;
   font-family:monospace;
   font-size: .85em;
-  color: var(--text-color); /* Use theme text color */
+  color: var(--text-color); 
 }
 .win-image {
   flex: 1;
@@ -544,15 +544,15 @@
   margin-top: 5px;
 }
 
-#typography-canvas-container.hidden, /* Hides W10 canvas container */
-#arrow-controls.hidden { /* Hides W10 arrows */
+#typography-canvas-container.hidden, 
+#arrow-controls.hidden { 
    display: none !important;
 }
 
 
-/* === Week 11 Specific Styles === */
 
-.summary-section { /* Text summary layout for W11 */
+
+.summary-section { 
   width: 100%;
   max-width: 900px;
   margin: 0 auto 30px auto;
@@ -572,7 +572,7 @@
   color: var(--text-color);
 }
 
-.interactive-project-section { /* Container for controls + canvas in W11 */
+.interactive-project-section { 
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -585,7 +585,7 @@
   text-align: center;
 }
 
-.controls-container { /* Button/Input container for W11 */
+.controls-container { 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -603,27 +603,27 @@
 .controls-container input[type="text"] {
   padding: 10px 15px;
   border: 1px solid var(--text-color);
-  background-color: var(--canvas-bg-color, #f0f0e0); /* Default state */
-  color: var(--background-color); /* Default state */
+  background-color: var(--canvas-bg-color, #f0f0e0); 
+  color: var(--background-color); 
   font-family: monospace;
   font-size: 1em;
   border-radius: 4px;
   flex-grow: 1;
   min-width: 200px;
-  transition: background-color 0.2s ease, color 0.2s ease; /* Add transition */
+  transition: background-color 0.2s ease, color 0.2s ease; 
 }
-.controls-container input[type="text"]:focus { /* Focus state */
-  background-color: var(--background-color); /* Use variable */
-  color: var(--text-color);              /* Use variable */
-  outline: 1px solid var(--text-color);  /* Use variable for outline */
+.controls-container input[type="text"]:focus { 
+  background-color: var(--background-color); 
+  color: var(--text-color);              
+  outline: 1px solid var(--text-color);  
 }
 
 .controls-container button,
 .controls-container select {
   padding: 10px 15px;
   border: 1px solid var(--text-color);
-  background-color: var(--control-bg-color, rgba(217, 217, 217, 0.8)); /* Default state */
-  color: var(--control-text-color, var(--background-color)); /* Default state */
+  background-color: var(--control-bg-color, rgba(217, 217, 217, 0.8)); 
+  color: var(--control-text-color, var(--background-color)); 
   font-family: 'TronicaMono', monospace;
   font-size: 1em;
   cursor: pointer;
@@ -633,13 +633,13 @@
 }
 .controls-container button:hover,
 .controls-container select:hover {
-  background-color: var(--background-color); /* Use variable */
-  color: var(--text-color);              /* Use variable */
+  background-color: var(--background-color); 
+  color: var(--text-color);              
 }
 .controls-container button:active {
-  background-color: var(--background-color); /* Use variable */
-  color: var(--text-color);              /* Use variable */
-  transform: scale(0.98); /* Keep consistent active feedback */
+  background-color: var(--background-color); 
+  color: var(--text-color);              
+  transform: scale(0.98); 
 }
 .controls-container select {
   appearance: none;
@@ -649,32 +649,22 @@
   padding-right: 30px;
 }
 
-.typography-canvas.week11 { /* Canvas override for W11 */
+.typography-canvas.week11 { 
   height: 500px;
-  background-color: #2a3a6a; /* Fallback */
+  background-color: #2a3a6a; 
   background-image: url('../img/blueprint_texture.jpg');
   background-repeat: repeat;
   background-size: contain;
-  /* Inherits general .typography-canvas styles like max-width, margin, radius etc. */
+  
 }
 
 
-/* === Blueprint Styles (Example/Unused?) === */
-/* These seem specific and might conflict if not intended for the current page */
-/* Keep commented out unless needed for a specific week */
-/*
-#typography-canvas.blueprint-bg { ... }
-#typography-canvas .interactive-blueprint { ... }
-#typography-canvas .letter { ... }
-#typography-canvas .letter.is-hovering { ... }
-#typography-canvas .letter.is-hovering::before,
-#typography-canvas .letter.is-hovering::after { ... }
-#typography-canvas .letter.is-finalized { ... }
-#typography-canvas .letter.is-hovering-css { ... }
-#typography-canvas .letter.is-finalizing { ... }
-*/
 
-/* === Utility Classes === */
+
+
+
+
+
 
 .rationale-group p{
 color: var(--text-color);
@@ -685,49 +675,49 @@ color: var(--text-color);
 }
 
 .hidden {
-  display: none !important; /* Force hide */
+  display: none !important; 
 }
 
 .typography-section.originalWork{
   margin-top:125px;
 }
 
-/* CARD — now sized automatically by the front image */
+
 .card{
-  display:inline-block;        /* shrink‑wrap to image */
-  position:relative;           /* anchor the back face */
+  display:inline-block;        
+  position:relative;           
   perspective:600px;
   cursor:pointer;
   right:-25%;
 }
 
-/* BOTH FACES */
+
 .card img{
-  display:block;               /* removes the little inline gap */
-  width:50%;                  /* fill the card’s width … */
-  height:auto;                 /* … but keep aspect ratio */
+  display:block;               
+  width:50%;                  
+  height:auto;                 
   backface-visibility:hidden;
   transition:transform .5s;
   border:2px white solid;
 }
 
-/* BACK FACE overlays the front */
+
 .card .back{
   position:absolute;
-  inset:0;                     /* top:0 right:0 bottom:0 left:0 */
-  transform:rotateY(180deg);   /* start hidden */
+  inset:0;                     
+  transform:rotateY(180deg);   
 }
 
-/* FLIP STATES */
+
 .card.flip .front{ transform:rotateY(180deg); }
-.card.flip .back { transform:rotateY(360deg); }   /* ends facing us */
+.card.flip .back { transform:rotateY(360deg); }   
 
 
-/* === Media Queries === */
 
-/* Medium Screens / Tablets */
+
+
 @media (max-width: 768px) {
-  .typography-section { /* Stack summary/canvas */
+  .typography-section { 
     grid-template-columns: 1fr;
     justify-items: center;
   }
@@ -737,42 +727,42 @@ color: var(--text-color);
     text-align: left;
       padding-right:0px;
   }
-  .summary-group { /* Center text block when stacked */
+  .summary-group { 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 90%; /* Limit width */
+    max-width: 90%; 
   }
 
-  .controls-container { /* Stack W11 controls */
+  .controls-container { 
     flex-direction: column;
     align-items: stretch;
   }
 
-  .typography-canvas:not(#typography-canvas.week10):not(.typography-canvas.week11) { /* Adjust default canvas height */
-    height: 250px; /* Applies to W1, W2, W3, W4, W5, W9 */
+  .typography-canvas:not(#typography-canvas.week10):not(.typography-canvas.week11) { 
+    height: 250px; 
   }
-   .typography-canvas.week11 { /* Adjust W11 height */
+   .typography-canvas.week11 { 
       height: 400px;
    }
-   /* Week 10 (#typography-canvas.week10) uses aspect-ratio, no height set */
+   
 
-  #win-content { /* Stack W10 win content */
+  #win-content { 
     flex-direction: column;
   }
   .win-article { margin-bottom: 15px; padding-right: 0;}
   .win-image { padding-left: 0; }
 }
 
-/* Mobile Screens */
+
 @media (max-width: 490px) {
   html, body {
     overflow-x: hidden;
     width: 100vw;
   }
 
-  /* Homepage adjustments */
+  
   .hero { margin-bottom: 0px; height: 400px; }
   .hero .background-text { top: 80px; left: 0; font-size: 5.5em; }
   .hero canvas { touch-action: none; -ms-touch-action: none; }
@@ -783,40 +773,40 @@ color: var(--text-color);
   .input-info-img { display: none; }
   .logo-img { width: 65px; }
 
-  /* Project Page Adjustments */
+  
   .projects-navbar ul li a { font-size: 1em; }
-  .projects-navbar ul li:nth-child(2) { display: none; } /* Hide 'rationale' link */
+  .projects-navbar ul li:nth-child(2) { display: none; } 
   .project_selection ul li a { font-size: 1em; }
   .projects-footer .left-img { width: 180px; }
   .projects-footer .right-img { width: 70px; }
 
-  /* Title/Summary Adjustments */
+  
   .title-section { margin-top: 80px; margin-bottom: 30px; }
   .title-section h1 { font-size: 1.4em; }
   .summary-section h2,
   .interactive-project-section h2,
   .summary-group h2,
-  .typography-group h2 { /* Reduce all H2 sizes */
+  .typography-group h2 { 
       font-size: 1.2em;
   }
 
-  /* Canvas heights Adjustments */
-   .typography-canvas:not(#typography-canvas.week10):not(.typography-canvas.week11) { /* Adjust default canvas height */
-    height: 250px; /* Applies to W1, W2, W3, W4, W5, W9 */
+  
+   .typography-canvas:not(#typography-canvas.week10):not(.typography-canvas.week11) { 
+    height: 250px; 
   }
-   .typography-canvas.week11 { /* Adjust W11 height */
+   .typography-canvas.week11 { 
       height: 350px;
    }
-   /* Week 10 (#typography-canvas.week10) uses aspect-ratio, no height set */
+   
 
 
-  /* Show On-Screen Keyboard for W3 */
+  
   .on-screen-keyboard {
-    display: block !important; /* Added !important to increase specificity */
+    display: block !important; 
   }
 
-  /* Show Arrow Controls for W10 */
+  
   #arrow-controls {
-    display: flex !important; /* Added !important to increase specificity */
+    display: flex !important; 
   }
 }

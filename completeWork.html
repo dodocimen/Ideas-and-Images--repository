@@ -14,32 +14,27 @@
       .navigation.allWork {
         padding-top: 150px;
       }
-      /* Styles specific to completeWork.html */
       .complete-work-grid {
         display: grid;
-        /* Create 4 equal columns */
         grid-template-columns: repeat(4, 1fr);
-        gap: 30px; /* Adjust gap between cards */
-        padding: 50px 20px; /* Add some padding around the grid */
-        max-width: 1200px; /* Limit grid width */
-        margin: 50px auto; /* Center the grid */
+        gap: 30px;
+        padding: 50px 20px;
+        max-width: 1200px;
+        margin: 50px auto;
         box-sizing: border-box;
       }
 
-      /* Adjust card size within the grid */
       .complete-work-grid .card {
-        width: 100%; /* Make card fill grid cell */
-        perspective: 600px; /* Keep perspective for flip */
+        width: 100%;
+        perspective: 600px;
         cursor: pointer;
-        /* Remove the specific positioning from projectContent.css */
         position: relative;
         right: auto;
-        display: block; /* Ensure it behaves like a block */
+        display: block;
       }
 
-      /* Ensure images within the card scale correctly */
       .complete-work-grid .card img {
-        width: 100%; /* Make images fill card */
+        width: 100%;
         height: auto;
         display: block;
         backface-visibility: hidden;
@@ -47,14 +42,12 @@
         border: 2px white solid;
       }
 
-      /* Position the back face correctly */
       .complete-work-grid .card .back {
         position: absolute;
-        inset: 0; /* top:0 right:0 bottom:0 left:0 */
-        transform: rotateY(180deg); /* start hidden */
+        inset: 0;
+        transform: rotateY(180deg);
       }
 
-      /* Flip states (should be covered by projectContent.css, but included for clarity) */
       .complete-work-grid .card.flip .front {
         transform: rotateY(180deg);
       }
@@ -62,19 +55,15 @@
         transform: rotateY(360deg);
       }
 
-      /* Responsive adjustments for the grid */
       @media (max-width: 900px) {
         .complete-work-grid {
-          grid-template-columns: repeat(
-            2,
-            1fr
-          ); /* 2 columns on smaller screens */
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
       @media (max-width: 480px) {
         .complete-work-grid {
-          grid-template-columns: 1fr; /* 1 column on very small screens */
+          grid-template-columns: 1fr;
           gap: 20px;
           padding: 30px 10px;
         }
@@ -139,13 +128,10 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Select all card elements within the grid
         const cards = document.querySelectorAll(".complete-work-grid .card");
 
-        // Add a click listener to each card
         cards.forEach((card) => {
           card.addEventListener("click", () => {
-            // Toggle the 'flip' class on the clicked card
             card.classList.toggle("flip");
           });
         });

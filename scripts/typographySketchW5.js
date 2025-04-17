@@ -1,63 +1,54 @@
-/*
-  wanderingHomesickWords.js (Prettier Aesthetics + Mobile Optimized)
-  - Aesthetic enhancements:
-      - Softer color palette (words, beams, house)
-      - Smoother flicker using Perlin noise
-      - Rounded corners on house base
-      - Beams fade with length
-      - Simple blast visual effect
-  - Retains mobile optimizations and other features.
-*/
 
-// Word states
+
+
 const WANDER = 0;
 const HIDING = 1;
 const BLAST = 2;
 const DRAG = 3;
 
-// --- Mobile Optimization Configuration ---
+
 const mobileBreakpoint = 400;
 const mobileWordCount = 12;
-const desktopBackgroundAlpha = 20; // Slightly less trail for clarity
+const desktopBackgroundAlpha = 20; 
 const mobileBackgroundAlpha = 40;
-const desktopBeamCountRange = [10, 18]; // Reduced max beams
-const mobileBeamCountRange = [6, 10];   // Further reduced beams on mobile
+const desktopBeamCountRange = [10, 18]; 
+const mobileBeamCountRange = [6, 10];   
 const desktopWanderSpeed = 1.5;
 const mobileWanderSpeed = 2.0;
 const desktopBlastSpeedRange = [4, 7];
 const mobileBlastSpeedRange = [55, 10];
-// --- End Mobile Optimization ---
 
-// --- House Dimension Configuration ---
+
+
 const desktopHouseWidthRatio = 0.18;
 const desktopHouseHeightRatio = 0.25;
 const mobileHouseWidthRatio = 0.28;
 const mobileHouseHeightRatio = 0.20;
-// --- End Configuration ---
-
-// --- Aesthetics Configuration ---
-const houseBaseColor = '#000050'; // Very dark blue
-const houseRoofColor = '#00006A'; // Slightly lighter dark blue
-const houseCornerRadius = 5;      // Rounded corners for house base
-const wordColor = '#FFFFE0';      // Light yellow / Ivory
-const beamHueMin = 180;           // Cooler Cyan/Blue range start
-const beamHueMax = 240;           // Blue/Violet range end
-const blastEffectColor = '#ffeb68'; // yellow blast
-// --- End Aesthetics Configuration ---
 
 
-// Only one word can hide at a time
+
+const houseBaseColor = '#000050'; 
+const houseRoofColor = '#00006A'; 
+const houseCornerRadius = 5;      
+const wordColor = '#FFFFE0';      
+const beamHueMin = 180;           
+const beamHueMax = 240;           
+const blastEffectColor = '#ffeb68'; 
+
+
+
+
 let activeHidingWord = null;
 let draggedWord = null;
 
-// Custom font & container reference
+
 let customFont;
 let container;
 
-// House dimensions
+
 let houseW, houseH, houseX, houseY;
 
-// Blast effect variables
+
 let blastX = 0, blastY = 0, blastRadius = 0, blastMaxRadius = 0, blastAlpha = 0;
 const blastExpandSpeed = 5;
 const blastFadeSpeed = 10;
@@ -91,7 +82,7 @@ function setup() {
   }
 
   textFont(customFont);
-  noiseSeed(millis()); // Seed noise for flicker
+  noiseSeed(millis()); 
 
   let wordsToUse;
   let isMobile = windowWidth <= mobileBreakpoint;
@@ -144,21 +135,21 @@ function draw() {
   let bgAlpha = (windowWidth <= mobileBreakpoint) ? mobileBackgroundAlpha : desktopBackgroundAlpha;
   background(3, 0, 191, bgAlpha);
 
-  // Draw blast effect (if active)
+  
   drawBlastEffect();
 
   if (activeHidingWord) {
     drawUnrestrictedBeams();
   }
-  drawHouse(); // Draw house potentially over beams/blast
+  drawHouse(); 
 
   for (let w of wordObjects) {
     updateWord(w);
-    displayWord(w); // Words generally on top
+    displayWord(w); 
   }
 }
 
-// --- Drawing Functions ---
+
 
 function drawBlastEffect() {
     if (blastAlpha > 0) {
@@ -167,14 +158,14 @@ function drawBlastEffect() {
         let blastColor = color(blastEffectColor);
         blastColor.setAlpha(blastAlpha);
         stroke(blastColor);
-        strokeWeight(2 + (blastMaxRadius - blastRadius) * 0.05); // Thicker when smaller
+        strokeWeight(2 + (blastMaxRadius - blastRadius) * 0.05); 
         ellipse(blastX, blastY, blastRadius * 2, blastRadius * 2);
         pop();
 
-        // Update blast animation
+        
         blastRadius += blastExpandSpeed;
         blastAlpha -= blastFadeSpeed;
-        blastAlpha = max(0, blastAlpha); // Ensure alpha doesn't go below 0
+        blastAlpha = max(0, blastAlpha); 
     }
 }
 
@@ -184,18 +175,18 @@ function drawUnrestrictedBeams() {
 
   let beams = activeHidingWord.beamCount;
   for (let i = 0; i < beams; i++) {
-    // --- Reduce angle noise ---
-    let angle = (TWO_PI / beams) * i + noise(activeHidingWord.x * 0.01, i) * 0.1 - 0.05; // Less noise influence
-    // --- End modification ---
+    
+    let angle = (TWO_PI / beams) * i + noise(activeHidingWord.x * 0.01, i) * 0.1 - 0.05; 
+    
     let beamLen = random(activeHidingWord.beamMinLength, activeHidingWord.beamMaxLength);
     let sw = random(activeHidingWord.beamStrokeMin, activeHidingWord.beamStrokeMax);
     strokeWeight(sw);
 
     colorMode(HSB);
-    let alphaVariance = 15; // Reduced variance
-    // --- Make alpha fade more based on length ---
-    let lengthRatio = map(beamLen, activeHidingWord.beamMinLength, activeHidingWord.beamMaxLength, 1, 0.2); // Fade to 20% alpha at max length
-    // --- End modification ---
+    let alphaVariance = 15; 
+    
+    let lengthRatio = map(beamLen, activeHidingWord.beamMinLength, activeHidingWord.beamMaxLength, 1, 0.2); 
+    
     let baseAlpha = random(max(0, activeHidingWord.beamAlpha - alphaVariance), min(100, activeHidingWord.beamAlpha + alphaVariance));
     let finalAlpha = baseAlpha * lengthRatio;
 
@@ -210,61 +201,61 @@ function drawUnrestrictedBeams() {
 }
 
 function drawHouse() {
-  push(); // Isolate house drawing styles
+  push(); 
   noStroke();
-  // Roof
+  
   fill(houseRoofColor);
   triangle(houseX, houseY + houseH * 0.2,
            houseX + houseW, houseY + houseH * 0.2,
            houseX + houseW / 2, houseY);
-  // Base with rounded corners
+  
   fill(houseBaseColor);
-  rect(houseX, houseY + houseH * 0.2, houseW, houseH * 0.8, 0, 0, houseCornerRadius, houseCornerRadius); // Bottom corners rounded
+  rect(houseX, houseY + houseH * 0.2, houseW, houseH * 0.8, 0, 0, houseCornerRadius, houseCornerRadius); 
   pop();
 }
 
 
 function displayWord(w) {
-  // REMOVED: if (w.state === HIDING) return; // We now draw it dimly when hiding
+  
 
   push();
-  translate(w.x, w.y); // Translate to word's position (center of house if hiding)
+  translate(w.x, w.y); 
   textAlign(CENTER, CENTER);
   let scaleVal = w.currentScale;
 
   if (w.state === HIDING) {
-      // --- Draw word dimly when hiding ---
-      let hidingSize = w.size * scaleVal * 1; // Make it smaller when hiding
+      
+      let hidingSize = w.size * scaleVal * 1; 
       textSize(hidingSize);
-      // Use a very dark, low-alpha color
-      let hidingColor = color(250, 250, 20, 250); // Dark bluish-grey, low alpha (adjust as needed)
+      
+      let hidingColor = color(250, 250, 20, 250); 
       fill(hidingColor);
-      noStroke(); // Ensure no stroke makes it too visible
-      text(w.txt, 0, 5); // Draw at the translated center point
-      // --- End hiding draw style ---
+      noStroke(); 
+      text(w.txt, 0, 5); 
+      
 
   } else {
-      // --- Normal drawing logic for WANDER, BLAST, DRAG states ---
+      
       textSize(w.size * scaleVal);
 
-      // Smoother Flicker using noise
+      
       let flickerNoise = noise(w.x * 0.05, w.y * 0.05, frameCount * 0.05);
       let alphaVal = map(flickerNoise, 0, 1, 150, 255);
 
-      let baseColor = color(wordColor); // Use the defined word color
+      let baseColor = color(wordColor); 
       baseColor.setAlpha(alphaVal);
 
-      // Glow effect removed previously
+      
 
       fill(baseColor);
       text(w.txt, 0, 0);
-      // --- End normal drawing ---
+      
   }
 
   pop();
 }
 
-// --- Object Creation & State Management ---
+
 
 function createWordObject(txt) {
   let relativeSize = random(height * 0.04, height * 0.08);
@@ -285,7 +276,7 @@ function createWordObject(txt) {
     hidingDuration: floor(random(40, 70)),
     blastDuration: floor(random(80, 120)),
     size: relativeSize,
-    // flicker property removed, using noise directly in displayWord
+    
     currentScale: 1.0,
     targetScale: 1.0,
     originalVX: 0,
@@ -322,9 +313,9 @@ function updateWord(w) {
     }
     keepInBounds(w);
   } else if (w.state === DRAG) {
-    // Position handled by mouseDragged
+    
   }
-  // Flicker value calculation moved to displayWord using noise
+  
 }
 
 function enterHidingState(w) {
@@ -337,32 +328,32 @@ function enterHidingState(w) {
   w.vy = 0;
 
   let beamRange = (windowWidth <= mobileBreakpoint) ? mobileBeamCountRange : desktopBeamCountRange;
-  w.beamCount = floor(random(beamRange[0], beamRange[1])); // Uses reduced range from constants
+  w.beamCount = floor(random(beamRange[0], beamRange[1])); 
 
   w.beamMinLength = random(width * 0.1, width * 0.4);
   w.beamMaxLength = random(width * 0.3, width * 0.7);
-  // --- Make beams thinner ---
-  w.beamStrokeMin = random(0.3, 2.0); // Thinner min stroke
-  w.beamStrokeMax = random(0.8, 3.0); // Thinner max stroke
-  // --- End modification ---
-  w.beamHue = random(beamHueMin, beamHueMax); // Use defined hue range
-  // --- Reduce saturation ---
-  w.beamSat = random(100, 50, 100); // Less saturated beams
-  // --- End modification ---
+  
+  w.beamStrokeMin = random(0.3, 2.0); 
+  w.beamStrokeMax = random(0.8, 3.0); 
+  
+  w.beamHue = random(beamHueMin, beamHueMax); 
+  
+  w.beamSat = random(100, 50, 100); 
+  
   w.beamBright = random(90, 250);
-  // --- Lower alpha slightly ---
-  w.beamAlpha = random(50, 80); // Lower max alpha (HSB 0-100 range)
-  // --- End modification ---
+  
+  w.beamAlpha = random(50, 80); 
+  
 }
 
 function enterBlastState(w) {
-    // --- Trigger Blast Visual Effect ---
-    blastX = w.x; // Start blast from word's last position
+    
+    blastX = w.x; 
     blastY = w.y;
-    blastRadius = 0; // Start radius at 0
-    blastMaxRadius = width * 0.9; // Blast expands to 30% of width (adjust as needed)
-    blastAlpha = 255; // Start fully opaque
-    // --- End Trigger ---
+    blastRadius = 0; 
+    blastMaxRadius = width * 0.9; 
+    blastAlpha = 255; 
+    
 
     w.state = BLAST;
     w.timer = w.blastDuration;
@@ -376,7 +367,7 @@ function enterBlastState(w) {
     w.vy = speed * sin(angle);
 }
 
-// --- Collision & Bounds ---
+
 
 function collidesWithHouse(w) {
   textSize(w.size * w.currentScale);
@@ -406,7 +397,7 @@ function keepInBounds(w) {
   if (w.y > height - radiusY) { w.y = height - radiusY; w.vy *= -1; }
 }
 
-// --- Mouse Interactions --- (Unchanged)
+
 
 function mousePressed() {
   for (let i = wordObjects.length - 1; i >= 0; i--) {
@@ -461,7 +452,7 @@ function mouseReleased() {
   }
 }
 
-// Optional: Helper function for shuffling array
+
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
   while (currentIndex > 0) {

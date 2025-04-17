@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>W6 - Book Cover</title>
+    <title>W9 - Influence</title>
     <link rel="icon" type="image/svg+xml" href="./img/webicon.svg" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/projectContent.css" />
   </head>
   <body>
-    <!-- Main Navbar (same as in theProject.html) -->
+    
     <nav class="projects-navbar">
       <ul>
         <li><a href="./index.html">home</a></li>
-        <li><a href="#">rationale</a></li>
-        <li><a href="#">website_info</a></li>
+        <li><a href="./completeWork.html">complete_work</a></li>
         <li><a class="active" href="#">the_project</a></li>
       </ul>
     </nav>
@@ -28,50 +27,116 @@
           <li><a href="./projectW3.html">W3</a></li>
           <li><a href="./projectW4.html">W4</a></li>
           <li><a href="./projectW5.html">W5</a></li>
-          <li><a href="./projectW6.html" class="active">W6</a></li>
-          <li><a href="#">-</a></li>
-          <li><a href="./projectW9.html">W9</a></li>
+
+          <li><a href="./projectW9.html" class="active">W9</a></li>
           <li><a href="./projectW10.html">W10</a></li>
+          <li><a href="./projectW11.html">W11</a></li>
         </ul>
       </nav>
     </div>
 
-    <!-- Main Content Section -->
+    
     <main class="project-content">
-      <!-- Title Section -->
+      
       <section class="title-section">
-        <h1>//WEEK 06: <span>B00K C0VER</span></h1>
+        <h1>//WEEK 09: <span>INFLUENCE</span></h1>
         <hr class="separator" />
       </section>
 
-      <!-- Typography Section -->
+      
       <section class="typography-section">
-        <!-- Summary Group (Left) -->
-        <div class="summary-group week6">
-          <h2>explanation</h2>
+        
+        <div class="summary-group week9">
+          <h2>about</h2>
           <p>
-            This is the summary of Project Week 1. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Vestibulum vitae ligula eget dolor
-            ultricies blandit.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vestibulum vitae ligula eget dolor ultricies blandit.Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae
-            ligula eget dolor ultricies blandit.
+            This project looks at how ideas change — how we’re influenced,
+            broken down, and built back up again.
+            <br />
+            <br />
+            Words like "COPY", "BREAK", "REBUILD" appear on screen. At first,
+            the letters come together neatly. But after a moment, they break
+            apart and start to drift in random directions. When the user clicks,
+            a new word appears, and the letters move into place again — starting
+            the cycle over.
+            <br />
+            <br />
+            The drifting is controlled by Perlin noise, giving it a soft,
+            natural feel. The letters are also gently pulled toward the mouse,
+            showing how influence doesn’t have to be loud — sometimes it’s
+            subtle. A final tile-based warping effect distorts the letters even
+            more, showing how nothing stays the same for long. This piece is
+            about how we're shaped by what we go through.
+            <br />
+            <br />
+            Ideas shift, break down, and change form — and that’s how we grow.
+            Influence is always happening, sometimes quietly, always moving.
           </p>
         </div>
-        <!-- Typography Group (Right) -->
-        <div class="typography-group week6">
+        
+        <div class="typography-group week9">
           <h2>click / drag</h2>
-          <!-- p5 Canvas container -->
-          <div id="typography-canvas" class="typography-canvas week6"></div>
+          
+          <div id="typography-canvas" class="typography-canvas week9"></div>
+        </div>
+      </section>
+
+      <section class="typography-section originalWork">
+        <div class="rationale-group">
+          <h2>Poster Influenced By:</h2>
+          <p>
+            <b>Designer – David Brodsky</b>
+            <br />
+            I’m drawn to David Brodsky’s work because of his strong use of size
+            contrast. He often places large elements next to much smaller ones
+            to create visual tension and highlight meaning — something I also
+            enjoy doing in my own work. It’s a simple technique, but it creates
+            a bold impact.
+            <br />
+            <br />
+            <b>Illustrator – Patrick O’Keefe </b>
+            <br />
+            I admire Patrick O’Keefe for his free, expressive line work and
+            vibrant colors. His illustrations feel spontaneous and full of
+            energy, yet still focused. That balance between freedom and impact
+            really inspires me — it shows how loose, emotional design can still
+            communicate something powerful.
+            <br />
+            <br />
+            <b>Photographer – Nick Brandt</b>
+            <br />
+            Nick Brandt’s photography stands out to me because of its intensity
+            and raw emotion. In his photography series, he captures wild animals
+            in human-dominated environments, and that contrast makes his work
+            feel haunting and honest. I’m especially inspired by the way he uses
+            composition to tell a deeper story — it’s not just about beauty,
+            it’s about truth and disruption.
+          </p>
+        </div>
+        <div class="work-group">
+          <div class="card">
+            <img class="front" src="./img/influence.png" alt="Front Image" />
+            <img class="back" src="./img/influenceback.png" alt="Back Image" />
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Include the project navigation script -->
+    <script>
+      // Find the card element
+      const cardElement = document.querySelector(".card");
+
+      // Add a click listener
+      cardElement.addEventListener("click", function () {
+        // Toggle the 'flip' class on the card element
+        cardElement.classList.toggle("flip");
+      });
+    </script>
+
+    
     <script src="./scripts/projectSketch.js"></script>
-    <!-- p5.js Library -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <!-- Typography p5 Sketch Script -->
-    <script src="./scripts/typographySketchW6.js"></script>
+    
+    <script src="./scripts/typographySketchW9.js"></script>
   </body>
 </html>
