@@ -33,6 +33,31 @@
     color: var(--text-color); 
   }
 
+  .academic-info {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    opacity: 0.5;
+    text-align: center;
+    z-index: 1;
+    font-weight: 300;
+    max-width: 400px;
+  }
+
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    .academic-info {
+      left:36%;
+      top:24px;
+      font-size: 0.85rem;
+      max-width: 250px;
+      text-align: left;
+      opacity: .6;
+    }
+  }
+
   .projects-navbar ul li a.active {
     background-color: var(--text-color);
     color: var(--background-color);
